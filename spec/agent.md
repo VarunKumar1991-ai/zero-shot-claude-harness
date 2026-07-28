@@ -1,218 +1,386 @@
 # Agent
 
-> Required when the project uses an agent framework. Delete this file if your project has no agent framework.
->
-> If your project has no agent framework (e.g., a simple script or single-LLM API call), delete this file.
->
+> Required: this project uses LangGraph.js. The graph below is the backbone for every phase; Phase 1 wires the full topology, with `suggest_followups` returning a structural stub (empty list) until Phase 2.
 
 ---
 
 ## Agent Architecture Pattern
 
-<!-- FILL IN: Which pattern does this agent follow? Choose one and describe why. -->
+**Chosen: Graph (LangGraph.js)**, composing three catalogue patterns from `harness/patterns/agentic-ai.md`:
 
-| Pattern | Use when |
-|---------|----------|
-| **Single-agent loop** | One LLM drives a deterministic tool-call loop. No branches, no handoffs. |
-| **Graph (LangGraph)** | Multi-step pipeline with conditional edges, checkpointing, or parallel nodes. |
-| **Multi-agent** | Specialised sub-agents with distinct roles; orchestrator routes between them. |
-| **Supervisor** | One supervisor LLM dispatches to worker agents based on task type. |
-| **Human-in-the-loop** | Execution pauses at defined checkpoints for user review or approval. |
+- **#22 LLM-Generated Code Execution** (the backbone) — for any natural-language question over the uploaded CSV, the agent has Gemini write real JavaScript analysis code and runs it against the actual data, rather than mapping questions onto a fixed op-list. This is required because officers' questions are open-ended (counts, filters, trends, comparisons) and a rigid interpreter would silently fail on anything not pre-anticipated.
+- **#6 Planning** — for complex/multi-step questions, an explicit `plan` node runs before code generation; the `classify` node fast-paths simple counts/filters straight to `generate_code`, skipping planning overhead per the brief ("simple counts/filters in one fast pass").
+- **#12 Exception Handling and Recovery** — `execute_code` and `inspect_result` feed a bounded retry loop back to `generate_code` on execution failure or a low-confidence inspection, per the brief's "retry internally with a different approach before giving up."
 
-**Chosen:** <!-- state pattern + one-sentence rationale -->
+Rejected: a plain ReAct tool-loop without a graph was considered but rejected because the retry-with-different-strategy requirement and the plan/fast-path branch are cleaner as explicit conditional edges than as one undifferentiated loop; a multi-agent architecture was rejected as overkill — one agent with tools and a bounded retry loop meets every Phase 1/2 requirement.
 
 ---
 
 ## LLM Provider & Model
 
-<!-- FILL IN: Which model drives each agent/node? State provider, model ID, and why. -->
-
 | Agent / Node | Provider | Model ID | Rationale |
 |-------------|----------|----------|-----------|
-| <!-- node --> | Anthropic | <!-- e.g. claude-sonnet-4-6 --> | <!-- latency vs. quality trade-off --> |
+| `classify` | Gemini | `gemini-2.5-flash` | Cheap single-label classification (simple vs. complex, clarify-needed), latency matters most |
+| `plan` | Gemini | `gemini-3.1-pro` | Multi-step strategy needs stronger reasoning; only invoked for complex questions |
+| `generate_code` | Gemini | `gemini-3.1-pro` | Code correctness matters most; higher-quality model justified since it also drives the retry loop |
+| `inspect_result` | Gemini | `gemini-2.5-flash` | Cheap sanity-check of a small computed result (shape/plausibility), not a full reasoning task |
+| `synthesize_answer` | Gemini | `gemini-3.1-pro` | User-facing prose quality matters; drafts the plain-language answer and assumption flags |
+| `suggest_followups` | Gemini | `gemini-2.5-flash` | Phase 2 — short, cheap suggestion generation |
 
-**Fallback behaviour:** <!-- Production resilience only: retry/backoff, degraded mode, or a surfaced error if the LLM API is unavailable or rate-limited. NOT a test/offline stub path — tests call the real API with keys from `.env`. -->
+Model IDs are env-configurable (`AGENT_LLM_MODEL_PRIMARY` defaults to `gemini-3.1-pro`, `AGENT_LLM_MODEL_FAST` defaults to `gemini-2.5-flash`) so they can change without a code deploy, per `harness/patterns/tech-stack.md`'s model-naming rule.
 
-**Prompt strategy:** <!-- System/user split, few-shot examples, structured output (tool_use / JSON mode)? -->
+**Fallback behaviour:** each Gemini call is wrapped with retry + exponential backoff (up to 3 attempts, 500ms/1500ms/4000ms) for transient 429/5xx errors. If all attempts are exhausted, the node sets `state.error` with a clear cause (`"llm_unavailable"`) and the graph routes to `handle_error`, which persists a failed-query audit row and returns a plain-language "the analysis service is temporarily unavailable, please try again" message — never a fabricated answer.
+
+**Prompt strategy:** system/user split per node, prompts stored as `.md` templates in `src/prompts/`. `generate_code` and `synthesize_answer` request **structured output** (Gemini's JSON-mode response schema) so the graph can parse `{ code: string, explanation: string }` and `{ answer: string, keyNumbers: object[], assumptions: string[] }` reliably rather than parsing free text. Few-shot examples of the sandbox's exact JS contract (see below) are embedded in the `generate_code` system prompt so the LLM never invents disallowed APIs (`require`, `fetch`, file I/O).
 
 ---
 
 ## Tools & Tool Calling
 
-<!-- FILL IN: Every tool the agent can call. -->
+This agent does not use LangChain's generic "tool calling" abstraction for external APIs (no web search, no third-party APIs) — its one "tool" is the code sandbox itself, modeled as a graph node rather than a bound tool, because its input (generated code string) and output (execution result + captured errors) are graph-native and don't need the LLM to choose *whether* to call it — the graph always calls it after `generate_code`.
 
 | Tool name | Description | Inputs | Output | Side-effects |
 |-----------|-------------|--------|--------|--------------|
-| <!-- name --> | <!-- what it does --> | <!-- params --> | <!-- return type --> | <!-- DB write, API call, file write, etc. --> |
+| `sandboxExecute` | Runs LLM-generated JS in an isolated worker against the in-memory dataset | `{ code: string, rows: RowObject[] }` | `{ result: any, stdout: string[], error: string \| null, durationMs: number }` | None external — pure in-process compute, no DB/network/file writes |
 
-**Tool selection strategy:** <!-- How does the agent decide which tool to call? (LLM choice, rule-based routing, forced single tool) -->
+**Tool selection strategy:** N/A — the sandbox is always invoked after `generate_code`; there is no LLM choice of tool.
 
-**Tool failure handling:** <!-- retry, fallback, abort — per tool or global policy? -->
+**Tool failure handling:** a sandbox error (thrown exception, timeout, memory limit) is captured as `{ error: <message> }` and fed back into `generate_code` on the retry edge with the failure context, up to `MAX_CODE_RETRIES` (default 2, i.e. 3 total attempts) before falling to `handle_error`.
 
 ---
 
 ## Agent State
 
-<!-- FILL IN: The full state type. Every field must be named, typed, and annotated with what populates it. -->
+```javascript
+// src/agent/state.js — LangGraph.js state channel definitions (Annotation.Root)
 
-```python
-class AgentState(TypedDict):
-    # Identity
-    run_id: int                          # set at initialisation
+const AgentState = Annotation.Root({
+  // Identity
+  runId: Annotation(),              // set at initialisation (uuid, matches queries.id)
+  userId: Annotation(),             // set at initialisation, from session
+  datasetId: Annotation(),          // set at initialisation
 
-    # Input
-    # ...                                # fields populated from the trigger
+  // Input
+  question: Annotation(),           // the officer's natural-language question
+  conversationHistory: Annotation({ // Phase 2: prior {question, answer} turns in this session
+    default: () => [],
+  }),
 
-    # Pipeline data (populated progressively by nodes)
-    # ...
+  // Dataset context (populated by load_context)
+  datasetProfile: Annotation(),     // { columns, rowCount, dateRange, qualityFlags } from profiler
+  annotations: Annotation({ default: () => [] }), // Phase 2: user-provided column/business-rule notes
+  sampleRows: Annotation({ default: () => [] }),  // ≤20 rows, for LLM prompt context ONLY — never the full dataset
+  rows: Annotation(),               // full parsed dataset — in-process only, NEVER placed in an LLM prompt
 
-    # Output
-    # ...                                # final result fields
+  // Classification / planning
+  complexity: Annotation(),         // "simple" | "complex" | "needs_clarification"
+  clarifyingQuestion: Annotation(), // set when complexity === "needs_clarification"
+  plan: Annotation({ default: () => [] }), // ordered list of step descriptions, only for "complex"
 
-    # Control
-    error: str | None                    # set by any node on fatal failure
-    checkpoint: str | None              # last completed node (for resume)
+  // Code generation / execution loop
+  generatedCode: Annotation(),      // latest generated JS string
+  codeExplanation: Annotation(),    // LLM's one-line rationale for the code
+  executionResult: Annotation(),    // { result, stdout, error, durationMs } from sandboxExecute
+  attempts: Annotation({ default: () => [] }), // history of {code, executionResult, inspection} per retry — shown on "show steps" disclosure
+  retryCount: Annotation({ default: () => 0 }),
+
+  // Inspection
+  inspectionVerdict: Annotation(),  // "ok" | "retry" | "give_up"
+  inspectionNote: Annotation(),     // LLM's reasoning for the verdict
+
+  // Output
+  answer: Annotation(),             // final plain-language answer text
+  keyNumbers: Annotation({ default: () => [] }), // [{label, value}]
+  assumptions: Annotation({ default: () => [] }), // flagged assumptions, if the agent proceeded despite uncertainty
+  chartSpec: Annotation({ default: () => null }), // Phase 2: {type, series} for trend questions
+  followups: Annotation({ default: () => [] }),   // Phase 2: 2-3 suggested next questions (Phase 1: always [])
+  tokenUsage: Annotation({ default: () => ({ promptTokens: 0, completionTokens: 0 }) }),
+
+  // Control
+  error: Annotation({ default: () => null }),      // set by any node on fatal failure
+  status: Annotation({ default: () => "running" }), // "running" | "completed" | "failed" | "needs_clarification"
+});
 ```
 
 ---
 
 ## Nodes / Steps
 
-<!-- FILL IN: One section per node. For single-agent loops, describe each "step" or "tool call phase." -->
+### `load_context`
 
-### `node_[name]`
-
-**Reads from state:** <!-- field names -->
-
-**Writes to state:** <!-- field names -->
-
-**LLM call:** <!-- yes/no; if yes: prompt template summary, model used, output format -->
-
+**Reads from state:** `datasetId`, `userId`
+**Writes to state:** `datasetProfile`, `annotations`, `sampleRows`, `rows`
+**LLM call:** no
 **External calls:**
 
 | System | Operation | On Failure |
 |--------|-----------|------------|
-| <!-- system --> | <!-- what it calls --> | <!-- fatal (set error) / partial (log + continue) / retry --> |
+| SQLite (via Sequelize) | Load dataset profile + Phase-2 annotations | Fatal — sets `error`, routes to `handle_error` |
+| Disk | Load + parse the stored CSV into `rows` | Fatal — sets `error` |
 
-**Behaviour:** <!-- One paragraph. What decision or transformation does this node perform? -->
+**Behaviour:** Loads the persisted dataset profile and any saved annotations, re-parses the CSV file from disk into typed row objects (or reads a cached in-memory parse for the process if already loaded this session), and takes a small representative sample (≤20 rows) for LLM prompt context. `rows` (the full dataset) stays in the Node process and is never serialized into a prompt.
+
+### `classify`
+
+**Reads from state:** `question`, `datasetProfile`, `conversationHistory`
+**Writes to state:** `complexity`, `clarifyingQuestion`
+**LLM call:** yes — Gemini Flash, prompt: `src/prompts/classify.md`; structured JSON output `{ complexity, clarifyingQuestion? }`
+**External calls:** none beyond the LLM call itself (see fallback behaviour above)
+**Behaviour:** Determines whether the question is a simple count/filter (fast path, skip planning), a complex multi-step question (needs `plan`), or too ambiguous to answer confidently (routes to a clarifying-question response instead of guessing blind). Per the brief, ambiguity prefers asking a clarifying question first.
+
+### `plan`
+
+**Reads from state:** `question`, `datasetProfile`, `complexity`
+**Writes to state:** `plan`
+**LLM call:** yes — Gemini Pro, prompt: `src/prompts/plan.md`; structured output `{ steps: string[] }`
+**External calls:** none
+**Behaviour:** Only runs when `complexity === "complex"`. Produces an ordered list of analysis sub-steps (e.g. "1. Filter rows to June, 2. Filter to offence_type=theft, 3. Count rows") that is passed into `generate_code`'s prompt as guidance, not executed step-by-step itself — the plan shapes one code-generation call, per the brief's "planning a strategy first for complex questions."
+
+### `generate_code`
+
+**Reads from state:** `question`, `datasetProfile`, `sampleRows`, `plan`, `attempts` (prior failed attempts, if any retry)
+**Writes to state:** `generatedCode`, `codeExplanation`
+**LLM call:** yes — Gemini Pro, prompt: `src/prompts/generate_code.md`; structured output `{ code, explanation }`. Prompt includes the documented sandbox contract (available variable `rows`, whitelisted helpers, forbidden APIs) and, on retry, the prior attempt's code + error so the model tries a different approach rather than repeating the same mistake.
+**External calls:** none
+**Behaviour:** Produces a JS snippet that computes the answer from `rows` and assigns it to a `result` variable. Never given the full dataset in-prompt — only schema + ≤20 sample rows + (on retry) the prior failing snippet and its error message.
+
+### `execute_code`
+
+**Reads from state:** `generatedCode`, `rows`
+**Writes to state:** `executionResult`, `attempts` (appends this attempt)
+**LLM call:** no
+**External calls:**
+
+| System | Operation | On Failure |
+|--------|-----------|------------|
+| Sandbox worker (`worker_threads`) | `sandboxExecute({ code, rows })` | Captured as `executionResult.error`, NOT fatal — routes to `inspect_result`, which decides retry vs. give-up |
+
+**Behaviour:** Runs the generated code in the isolated worker (see `architecture.md` → Sandboxed code execution). Always returns a result object even on failure (never throws past this node) so `inspect_result` can uniformly reason about success and failure.
+
+### `inspect_result`
+
+**Reads from state:** `executionResult`, `question`, `retryCount`
+**Writes to state:** `inspectionVerdict`, `inspectionNote`
+**LLM call:** yes — Gemini Flash, prompt: `src/prompts/inspect_result.md`; structured output `{ verdict, note }`. Skipped (auto `"ok"`) when `executionResult.error` is null AND the result is a plain number/small array — a fast deterministic check — to avoid an LLM round-trip on the common simple-count case; only invoked for ambiguous/complex/errored results.
+**External calls:** none
+**Behaviour:** Sanity-checks whether the execution result plausibly answers the question (right shape, right order of magnitude, no execution error) and whether the retry budget (`retryCount < MAX_CODE_RETRIES`) allows another attempt. Verdict `"ok"` → `synthesize_answer`; `"retry"` (and budget remains) → back to `generate_code` with `retryCount += 1`; `"give_up"` or exhausted budget → `synthesize_answer` anyway, but with `assumptions` flagged so the agent gives its best guess with a clear caveat, per the brief.
+
+### `synthesize_answer`
+
+**Reads from state:** `question`, `executionResult`, `inspectionVerdict`, `attempts`, `datasetProfile`
+**Writes to state:** `answer`, `keyNumbers`, `assumptions`, `tokenUsage`
+**LLM call:** yes — Gemini Pro, prompt: `src/prompts/synthesize_answer.md`; structured output `{ answer, keyNumbers, assumptions }`. Only the **computed result** (numbers/small tables), not raw rows, is sent to the LLM here.
+**External calls:** none
+**Behaviour:** Turns the computed result into a plain-language answer with key numbers called out, flagging any assumptions the agent made (e.g. "assumed 'theft' includes IPC sections 379–382") when `inspectionVerdict !== "ok"` or the question was ambiguous.
+
+### `suggest_followups` (Phase 2; Phase 1 structural stub)
+
+**Reads from state:** `question`, `answer`, `datasetProfile`
+**Writes to state:** `followups`
+**LLM call:** Phase 1 — no (returns `[]` unconditionally, a deliberate stub per the roadmap). Phase 2 — yes, Gemini Flash, prompt: `src/prompts/suggest_followups.md`.
+**External calls:** none
+**Behaviour:** Phase 1: no-op passthrough so the graph shape and `finalize` contract are stable from day one (per `phases.md`'s "agentic stack wired from day one" rule) even though the feature isn't user-visible yet. Phase 2: generates 2–3 relevant next questions.
+
+### `handle_error`
+
+**Reads from state:** `error`, `runId`
+**Writes to state:** `status = "failed"`
+**LLM call:** no
+**External calls:**
+
+| System | Operation | On Failure |
+|--------|-----------|------------|
+| SQLite | Persist failed-query audit row (`status=failed`, `error`) | Logged only — never throws past this node |
+
+**Behaviour:** Terminal failure handler. Always persists an audit row (even on failure — the brief requires auditing "who ran what query," including failed ones) and returns a clear, human error message, never a stack trace, to the API layer.
+
+### `finalize`
+
+**Reads from state:** everything
+**Writes to state:** `status = "completed"` (or `"needs_clarification"` if `classify` routed here directly)
+**LLM call:** no
+**External calls:**
+
+| System | Operation | On Failure |
+|--------|-----------|------------|
+| SQLite | Persist the completed query audit row: question, generated code (final + all attempts), result, answer, timestamps, token usage | Fatal — sets `error`, but graph has already produced an answer, so the API layer still returns the answer to the user and logs the persistence failure separately (answer delivery is not blocked by audit-write failure) |
+
+**Behaviour:** Assembles the final API response shape and writes the full audit trail.
 
 ---
 
 ## Graph / Flow Topology
 
-<!-- FILL IN: ASCII diagram of node flow. Show ALL conditional edges explicitly. -->
-
 ```
 START
   │
   ▼
-node_a ──(error)──► node_handle_error ──► END
+load_context ──(error)──► handle_error ──► END
   │
   ▼
-node_b ──(condition)──► node_c
-  │                         │
-  │                         ▼
-  └──────────────────► node_finalize
-                             │
-                             ▼
-                            END
+classify ──(error)──► handle_error ──► END
+  │
+  ├──(complexity == "needs_clarification")──► finalize (status=needs_clarification) ──► END
+  │
+  ├──(complexity == "complex")──► plan ──► generate_code
+  │
+  └──(complexity == "simple")───────────────► generate_code
+                                                    │
+                                                    ▼
+                                              execute_code
+                                                    │
+                                                    ▼
+                                              inspect_result
+                                                    │
+                        ┌───────────────────────────┼───────────────────────────┐
+                        │ (verdict=="retry" AND      │ (verdict=="ok" OR         │
+                        │  retryCount < MAX)         │  give_up/budget exhausted)│
+                        ▼                            ▼                          
+                  generate_code (retryCount+1)  synthesize_answer
+                                                       │
+                                                       ▼
+                                              suggest_followups
+                                                       │
+                                                       ▼
+                                                   finalize
+                                                       │
+                                                       ▼
+                                                      END
 ```
 
 **Conditional edges:**
 
 | Source node | Condition | Target |
 |-------------|-----------|--------|
-| <!-- node --> | <!-- e.g. state["error"] is not None --> | <!-- target node --> |
+| `load_context` | `state.error` is set | `handle_error` |
+| `load_context` | else | `classify` |
+| `classify` | `state.error` is set | `handle_error` |
+| `classify` | `complexity === "needs_clarification"` | `finalize` |
+| `classify` | `complexity === "complex"` | `plan` |
+| `classify` | `complexity === "simple"` | `generate_code` |
+| `plan` | always | `generate_code` |
+| `generate_code` | always | `execute_code` |
+| `execute_code` | always | `inspect_result` |
+| `inspect_result` | `verdict === "retry" && retryCount < MAX_CODE_RETRIES` | `generate_code` |
+| `inspect_result` | `verdict === "ok"` OR (`verdict === "retry" && retryCount >= MAX_CODE_RETRIES`) OR `verdict === "give_up"` | `synthesize_answer` |
+| `synthesize_answer` | always | `suggest_followups` |
+| `suggest_followups` | always | `finalize` |
+| `handle_error` | always | `END` |
+| `finalize` | always | `END` |
 
 ---
 
 ## Memory & Context
 
-<!-- FILL IN: How does the agent remember things across turns, steps, or runs? -->
-
 | Scope | Mechanism | What is stored |
 |-------|-----------|----------------|
-| **Within a run** | LangGraph state | All in-progress data |
-| **Across runs** | <!-- DB / vector store / none --> | <!-- e.g. past results, user prefs --> |
-| **Conversation** | <!-- message history / summary / none --> | <!-- if chat-style --> |
+| **Within a run** | LangGraph.js state (in-memory during graph execution) | All fields above |
+| **Across runs (same dataset, any day)** | SQLite `queries` table | Every past question, generated code, result, answer, timestamps — persisted so datasets and their query history survive across sessions and days per the brief |
+| **Conversation (within a session)** | `queries` table filtered by `sessionId`, loaded into `conversationHistory` at `load_context` (Phase 2) | The last N (default 10) `{question, answer}` pairs from the current login session, so follow-up questions can reference prior turns |
 
-**Context window management:** <!-- How is the prompt kept within limits? (summary, sliding window, RAG retrieval) -->
+**Context window management:** only the last N conversation turns (summarized to `{question, answer}` pairs, not full code/reasoning traces) are included in the `classify`/`generate_code` prompts; sample rows are capped at 20; the full dataset is never placed in any prompt — this keeps every prompt well within Gemini's context window regardless of dataset size.
 
 ---
 
 ## Human-in-the-Loop Checkpoints
 
-<!-- FILL IN: Where does execution pause for human input? Delete section if not applicable. -->
-
 | Checkpoint | What is shown to the user | Expected user action | Timeout / default |
 |------------|--------------------------|----------------------|-------------------|
-| <!-- name --> | <!-- what the agent surfaces --> | <!-- approve / edit / abort --> | <!-- timeout action --> |
+| Clarifying question (`classify` → `needs_clarification`) | The agent's specific clarifying question, in place of an answer | Reply with clarification (submitted as a new question to the same session) | No timeout — the officer can also just re-ask more specifically; no forced default |
+| Malformed-row exclusion choice (upload-time, not graph-internal) | Data-quality warning summary with counts of affected rows | Choose "exclude bad rows and continue" or "cancel and re-upload fixed file" | No timeout — upload stays pending until the officer chooses |
 
 ---
 
 ## Error Handling & Recovery
 
-<!-- FILL IN: How the agent handles failures at each level. -->
+**Node-level:** every node wraps its LLM/DB/sandbox calls in try/catch; a caught exception sets `state.error` with a short machine-readable cause code (`llm_unavailable`, `db_error`, `parse_error`, `sandbox_crash`) and routes to `handle_error` via the node's conditional edge, except `execute_code` failures, which are recoverable and routed to `inspect_result`/retry instead of `handle_error` (a code bug is not a fatal system error).
 
-**Node-level:** <!-- Each node catches its own exceptions; fatal errors set state["error"] and route to handle_error node. -->
+**Graph-level (`handle_error` node):**
+- Reads: `state.error`, `state.runId`, `state.userId`, `state.datasetId`
+- Updates DB: audit row status → `"failed"`, `error_message` set, `completed_at` set
+- Logs error via `pino` with `runId` context
+- Terminates graph (routes to `END`)
 
-**Graph-level (handle_error node):**
-- Reads: `state.error`, `state.run_id`
-- Updates DB: run status → "failed", `error_message`, `completed_at`
-- Logs error with `run_id` context
-- Terminates graph
+**Resume / retry strategy:** a failed run is not resumed from a checkpoint (LangGraph.js checkpointing is not enabled in Phase 1/2 — see Concurrency Model); the officer simply re-asks the question, which starts a fresh run. The `attempts` array within a single run provides the internal retry-with-different-approach behavior the brief asks for; that retry is bounded (`MAX_CODE_RETRIES = 2`) and internal to one graph invocation, not a cross-run resume.
 
-**Resume / retry strategy:** <!-- Can a failed run be resumed from its last checkpoint? How? -->
-
-**Partial failure:** <!-- If a non-critical step fails, does the agent degrade gracefully or abort? -->
+**Partial failure:** a `finalize` DB-write failure (see `finalize` node above) does not block returning the already-computed answer to the officer — it is logged and surfaced in structured logs for follow-up, since losing the *answer* to a working query would be worse than a delayed audit write. All other partial failures (e.g. `suggest_followups` erroring) degrade gracefully: `suggest_followups` catches its own errors internally and defaults to `followups: []` rather than failing the whole run, since follow-up suggestions are a non-critical enhancement.
 
 ---
 
 ## Observability
 
-<!-- FILL IN: What is logged, traced, and measured? -->
-
 | Signal | What | Where |
 |--------|------|-------|
-| **Trace** | One trace per run, one span per node | <!-- OpenTelemetry / LangSmith / stdout --> |
-| **LLM calls** | Prompt tokens, completion tokens, latency, model | <!-- LangSmith / structured log --> |
-| **Tool calls** | Tool name, inputs, success/error, latency | Structured log |
-| **Run outcome** | Status, total duration, error if any | DB + structured log |
+| **Trace** | One trace per graph run, one span per node | LangSmith (if `LANGCHAIN_TRACING_V2=true` + key set) — see `architecture.md` |
+| **LLM calls** | Prompt tokens, completion tokens, latency, model, node name | `pino` structured log line per call + LangSmith span |
+| **Sandbox execution** | Code hash, duration, success/error, retry count | `pino` structured log line |
+| **Run outcome** | Status, total duration, error if any, `runId` | SQLite `queries` row + `pino` structured log line |
 
 ---
 
 ## Concurrency Model
 
-<!-- FILL IN: How concurrent agent runs are handled. -->
-
-- **Run isolation:** <!-- one-at-a-time (API returns 409) / queue / parallel with run_id scoping -->
-- **Parallel nodes within a run:** <!-- which nodes run in parallel and why -->
-- **Checkpointing:** <!-- none / SqliteSaver / PostgresSaver — required if human-in-the-loop or long-running -->
+- **Run isolation:** each Q&A request runs its own LangGraph.js invocation scoped by `runId`; multiple officers can query concurrently — Express's async request handling plus per-request state (no shared mutable graph state) makes this safe by construction. No locking/queue needed at Phase 1/2 scale.
+- **Parallel nodes within a run:** none in Phase 1/2 — the pipeline is intentionally sequential per question, since each step depends on the previous step's output (plan needs classify, code needs plan, execution needs code, etc.). Parallelism is not needed at the target scale (single-question latency budget, not throughput-under-load).
+- **Checkpointing:** none in Phase 1/2 (no `MemorySaver`/`SqliteSaver` — runs are short-lived, single-invocation, and not resumed mid-graph). Revisit if a future phase adds long-running multi-turn plans that must survive a server restart mid-run.
 
 ---
 
-## Graph Assembly (`agent/graph.py`)
+## Graph Assembly (`src/agent/graph.js`)
 
-<!-- FILL IN: Pseudocode showing how nodes and edges are wired. Must be ≤ 60 lines in the real file. -->
+```javascript
+import { StateGraph, END } from "@langchain/langgraph";
+import { AgentState } from "./state.js";
+import {
+  loadContext, classify, plan, generateCode, executeCode,
+  inspectResult, synthesizeAnswer, suggestFollowups,
+  handleError, finalize,
+} from "./nodes/index.js";
 
-```python
-graph = StateGraph(AgentState)
+function buildGraph() {
+  const g = new StateGraph(AgentState);
 
-graph.add_node("node_a", node_a)
-graph.add_node("node_b", node_b)
-graph.add_node("finalize", node_finalize)
-graph.add_node("handle_error", node_handle_error)
+  g.addNode("load_context", loadContext);
+  g.addNode("classify", classify);
+  g.addNode("plan", plan);
+  g.addNode("generate_code", generateCode);
+  g.addNode("execute_code", executeCode);
+  g.addNode("inspect_result", inspectResult);
+  g.addNode("synthesize_answer", synthesizeAnswer);
+  g.addNode("suggest_followups", suggestFollowups);
+  g.addNode("handle_error", handleError);
+  g.addNode("finalize", finalize);
 
-graph.set_entry_point("node_a")
+  g.setEntryPoint("load_context");
 
-graph.add_conditional_edges(
-    "node_a",
-    lambda s: "handle_error" if s.get("error") else "node_b",
-)
+  g.addConditionalEdges("load_context", (s) =>
+    s.error ? "handle_error" : "classify");
 
-graph.add_edge("node_b", "finalize")
-graph.add_edge("finalize", END)
-graph.add_edge("handle_error", END)
+  g.addConditionalEdges("classify", (s) => {
+    if (s.error) return "handle_error";
+    if (s.complexity === "needs_clarification") return "finalize";
+    if (s.complexity === "complex") return "plan";
+    return "generate_code";
+  });
 
-compiled_graph = graph.compile()
+  g.addEdge("plan", "generate_code");
+  g.addEdge("generate_code", "execute_code");
+  g.addEdge("execute_code", "inspect_result");
+
+  g.addConditionalEdges("inspect_result", (s) => {
+    if (s.inspectionVerdict === "retry" && s.retryCount < MAX_CODE_RETRIES) {
+      return "generate_code";
+    }
+    return "synthesize_answer";
+  });
+
+  g.addEdge("synthesize_answer", "suggest_followups");
+  g.addEdge("suggest_followups", "finalize");
+  g.addEdge("finalize", END);
+  g.addEdge("handle_error", END);
+
+  return g.compile();
+}
+
+export const agentGraph = buildGraph();
 ```

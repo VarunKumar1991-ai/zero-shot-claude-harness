@@ -1,23 +1,21 @@
 # Capabilities Index
 
-> **Boilerplate status:** The spec-writer sub-agent creates one file per capability in this directory. Each file describes exactly one discrete thing the agent can do.
-
 ---
 
 ## What Is a Capability?
 
-A capability is a single, discrete action or behavior the agent performs. Examples:
-- "Search the web for companies matching criteria X"
-- "Draft a personalized email given a lead profile"
-- "Send a Slack notification when a threshold is crossed"
+A capability is a single, discrete action or behavior the agent performs.
 
 ## Capabilities in This Project
 
-<!-- FILL IN: List capabilities here as they are defined. Each entry links to its spec file (no number prefix). -->
+| Capability | File | Phase |
+|-----------|------|-------|
+| Officer Authentication | [officer-authentication.md](officer-authentication.md) | 1 |
+| Dataset Upload and Profiling | [dataset-upload-and-profiling.md](dataset-upload-and-profiling.md) | 1 |
+| Natural-Language Question Answering | [natural-language-question-answering.md](natural-language-question-answering.md) | 1 |
+| Audit Trail | [audit-trail.md](audit-trail.md) | 1 |
 
-| Capability | File |
-|-----------|------|
-| <!-- name --> | [name.md](name.md) |
+Phase 2 wires these Phase-1 UI stubs into real capabilities (each will get its own capability file when Phase 2 is planned in detail, per `/zero-shot-build`'s incremental-capability flow): multi-file combine/join, column annotations, charts, export, follow-up-question suggestions, conversation history, save-derived-dataset.
 
 ## How to Add a New Capability
 
@@ -34,5 +32,5 @@ Each capability file should answer:
 - **Inputs** (what data it receives)
 - **Outputs** (what it produces)
 - **External calls** (APIs, LLMs, databases it touches)
-- **Error cases** (what can go wrong and how it's handled)
+- **Business rules**
 - **Success criteria** (how we test it)

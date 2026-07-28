@@ -1,18 +1,17 @@
 .env
-__pycache__/
-*.pyc
-*.pyo
-.venv/
-venv/
 node_modules/
 .next/
 dist/
 build/
-*.egg-info/
+__pycache__/
+*.pyc
+.venv/
+venv/
 .DS_Store
 *.log
 
 *.db
 *.db-shm
 *.db-wal
-data/
+data/*
+!data/.gitkeep

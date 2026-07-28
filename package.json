@@ -1,0 +1,38 @@
+{
+  "name": "up-police-analyst-agent",
+  "version": "0.1.0",
+  "private": true,
+  "description": "UP Police Data Analyst Agent — Node.js + Express + LangGraph.js backend",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js",
+    "migrate": "sequelize-cli db:migrate && sequelize-cli db:seed:all",
+    "test:unit": "vitest run tests/unit",
+    "test:integration": "vitest run tests/integration",
+    "test:e2e": "playwright test tests/e2e"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "@langchain/langgraph": "^0.2.19",
+    "@google/generative-ai": "^0.21.0",
+    "sequelize": "^6.37.3",
+    "sequelize-cli": "^6.6.2",
+    "sqlite3": "^5.1.7",
+    "csv-parse": "^5.6.0",
+    "bcrypt": "^5.1.1",
+    "jsonwebtoken": "^9.0.2",
+    "pino": "^9.5.0",
+    "multer": "^1.4.5-lts.1",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7",
+    "vitest": "^2.1.4",
+    "@playwright/test": "^1.48.2"
+  }
+}
