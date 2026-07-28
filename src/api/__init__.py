@@ -9,14 +9,19 @@ from fastapi.staticfiles import StaticFiles
 async def _lifespan(app: FastAPI):
     from db.session import init_db
     init_db()
+    # Ensure the seeded demo/test account exists for local testing (idempotent).
+    from auth.seed import seed_demo_account
+    seed_demo_account()
     yield
 
 
 def create_app() -> FastAPI:
     app = FastAPI(title="Agent", version="0.1.0", lifespan=_lifespan)
-    from api import health, runs
+    from api import health, runs, auth, audit
     app.include_router(health.router)
     app.include_router(runs.router)
+    app.include_router(auth.router)
+    app.include_router(audit.router)
 
     # Serve the built Next.js static export at /app
     # Run `cd frontend && pnpm build` to generate frontend/out/ before starting.

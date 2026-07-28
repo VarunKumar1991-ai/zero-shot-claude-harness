@@ -21,6 +21,17 @@ class Settings(BaseSettings):
     anthropic_api_key: str = Field(default="")
     gemini_api_key: str = Field(default="")
 
+    # UP Police Data Analyst Agent — Phase 1 operational knobs (see spec/architecture.md → Stack)
+    upload_dir: str = Field(default="./data/uploads")
+    dataset_store_dir: str = Field(default="./data/datasets")
+    max_csv_mb: int = Field(default=100)
+    sandbox_timeout_seconds: int = Field(default=20)
+    max_code_retries: int = Field(default=3)
+    conversation_history_turns: int = Field(default=5)
+    session_ttl_hours: int = Field(default=12)
+    llm_fast_model: str = Field(default="gemini-2.5-flash")
+    data_source: str = Field(default="local_parquet")
+
 
 _settings: Settings | None = None
 
