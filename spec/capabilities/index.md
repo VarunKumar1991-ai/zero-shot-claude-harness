@@ -1,23 +1,40 @@
 # Capabilities Index
 
-> **Boilerplate status:** The spec-writer sub-agent creates one file per capability in this directory. Each file describes exactly one discrete thing the agent can do.
-
----
-
 ## What Is a Capability?
 
-A capability is a single, discrete action or behavior the agent performs. Examples:
-- "Search the web for companies matching criteria X"
-- "Draft a personalized email given a lead profile"
-- "Send a Slack notification when a threshold is crossed"
+A capability is a single, discrete action or behavior the agent performs.
 
 ## Capabilities in This Project
 
-<!-- FILL IN: List capabilities here as they are defined. Each entry links to its spec file (no number prefix). -->
+### Phase 1 (built now)
 
 | Capability | File |
 |-----------|------|
-| <!-- name --> | [name.md](name.md) |
+| Officer Authentication | [officer-authentication.md](officer-authentication.md) |
+| CSV Upload and Profiling | [csv-upload-and-profiling.md](csv-upload-and-profiling.md) |
+| Conversational Data Q&A | [conversational-data-qa.md](conversational-data-qa.md) |
+| Server-Side Audit Trail | [server-side-audit-trail.md](server-side-audit-trail.md) |
+
+### Phase 2 — Multi-File Analysis + Persistent Context
+
+| Capability | File |
+|-----------|------|
+| Multi-File Join and Combine | [multi-file-join-and-combine.md](multi-file-join-and-combine.md) |
+| Dataset Annotations | [dataset-annotations.md](dataset-annotations.md) |
+| Save Derived Dataset | [save-derived-dataset.md](save-derived-dataset.md) |
+
+### Phase 3 — Rich Output + Guided Exploration
+
+| Capability | File |
+|-----------|------|
+| Interactive Charts | [interactive-charts.md](interactive-charts.md) |
+| Exportable Report | [exportable-report.md](exportable-report.md) |
+| Follow-Up Suggestions | [followup-suggestions.md](followup-suggestions.md) |
+
+### Future (not phase-planned — see `spec/roadmap.md` → Future Direction)
+
+- MySQL data source (production DB integration, read replicas, caching)
+- Per-user / role-based dataset isolation
 
 ## How to Add a New Capability
 
@@ -34,5 +51,5 @@ Each capability file should answer:
 - **Inputs** (what data it receives)
 - **Outputs** (what it produces)
 - **External calls** (APIs, LLMs, databases it touches)
-- **Error cases** (what can go wrong and how it's handled)
+- **Business rules**
 - **Success criteria** (how we test it)
