@@ -187,12 +187,12 @@ describe("POST /api/datasets — error paths", () => {
     expect(body.data).toBeNull();
   });
 
-  it("returns 413 when the file exceeds the 100MB limit", async () => {
-    // Build a >100MB buffer cheaply (repeated valid CSV lines) rather than
-    // asserting against the real ~100MB fixture, to keep the suite fast.
+  it("returns 413 when the file exceeds the 500MB limit", async () => {
+    // Build a >500MB buffer cheaply (repeated valid CSV lines) rather than
+    // asserting against a real ~500MB fixture, to keep the suite fast.
     const header = "case_number,offence_type,fir_date\n";
     const row = "FIR/000000,Theft,2025-06-01\n";
-    const rowsNeeded = Math.ceil((101 * 1024 * 1024) / row.length);
+    const rowsNeeded = Math.ceil((501 * 1024 * 1024) / row.length);
     const oversized = Buffer.concat([Buffer.from(header), Buffer.from(row.repeat(rowsNeeded))]);
 
     const form = new FormData();

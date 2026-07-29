@@ -19,7 +19,7 @@ Today, answering "how many thefts were reported in June" from a CSV export means
 
 ## Success Criteria
 
-- [ ] An officer can log in, upload a real FIR/crime CSV (up to ~100MB), and see an accurate auto-generated profile (columns, row count, date range, data-quality flags) within a few seconds.
+- [ ] An officer can log in, upload a real FIR/crime CSV (up to ~500MB), and see an accurate auto-generated profile (columns, row count, date range, data-quality flags) within a few seconds.
 - [ ] An officer can ask a natural-language question about the uploaded data and receive a plain-language answer with the correct key number(s), computed by real code execution over the full uploaded dataset (not a sample), typically in under 30 seconds.
 - [ ] The officer can expand the answer to see the exact code that ran against their data.
 - [ ] Every query (who, what code, what result, when) is recorded in a server-side audit log.
@@ -32,14 +32,14 @@ Today, answering "how many thefts were reported in June" from a CSV export means
 - No per-user data isolation — all logged-in users share visibility into all uploaded datasets in Phase 1 and Phase 2.
 - No direct MySQL / production-database querying (explicitly deferred past Phase 2 — the architecture must not preclude it, but it is not built now).
 - No external integrations (email, Slack, dashboard export) in Phase 1 or Phase 2.
-- No millions-of-rows / heavy-concurrency scale target — Phase 1/2 target CSVs up to ~100MB and multiple concurrent users, not high-throughput production load.
+- No millions-of-rows / heavy-concurrency scale target — Phase 1/2 target CSVs up to ~500MB and multiple concurrent users, not high-throughput production load.
 - No mobile app — web only.
 
 ## Key Constraints
 
 - Cloud LLM calls are acceptable, but raw case-data rows must not be sent to the LLM where avoidable — the agent sends schemas, samples (for code-generation context only, never as the basis of the final computed answer), and aggregated/computed results.
 - Full server-side audit trail required: user, query text, generated code, result, timestamps.
-- Performance target: CSVs up to ~100MB, answers typically under 30 seconds, safe for multiple concurrent users (not stress-tested at scale in Phase 1/2).
+- Performance target: CSVs up to ~500MB, answers typically under 30 seconds, safe for multiple concurrent users (not stress-tested at scale in Phase 1/2).
 - Data must never be silently corrupted: malformed rows are detected, flagged, and only excluded with the user's explicit choice.
 - Production-quality from day one — Phase 1 is the smallest slice, not a throwaway demo; there are no shortcuts on the path it delivers.
 

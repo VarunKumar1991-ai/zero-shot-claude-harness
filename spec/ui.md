@@ -52,7 +52,7 @@ Web dashboard — Next.js 15 + React 19 (TypeScript), Tailwind CSS v4, static-ex
 **Actions available:**
 - Choose file, submit, review flags, exclude-and-continue or cancel
 
-**States:** Empty (no file chosen) / Loading (uploading + parsing, with a real progress indicator since 100MB files take real time) / Error (upload/parse failure — human message, e.g. "That file couldn't be read as CSV — check it's not corrupted") / Ideal (profile shown, flags resolved, dataset created).
+**States:** Empty (no file chosen) / Loading (uploading + parsing, with a real progress indicator since 500MB files take real time) / Error (upload/parse failure — human message, e.g. "That file couldn't be read as CSV — check it's not corrupted") / Ideal (profile shown, flags resolved, dataset created).
 
 ---
 

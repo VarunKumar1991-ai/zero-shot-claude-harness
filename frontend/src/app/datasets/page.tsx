@@ -74,7 +74,7 @@ export default function DatasetListPage() {
       const message =
         err instanceof ApiError
           ? err.status === 413
-            ? 'That file is too large (max ~100MB)'
+            ? 'That file is too large (max ~500MB)'
             : err.status === 422
               ? "That file couldn't be read as CSV — check it's not corrupted"
               : err.message
@@ -165,7 +165,7 @@ export default function DatasetListPage() {
             >
               <div>
                 <label htmlFor="csv-file" className="mb-1 block text-sm font-medium text-gray-700">
-                  CSV file (up to ~100MB)
+                  CSV file (up to ~500MB)
                 </label>
                 <input
                   ref={fileInputRef}

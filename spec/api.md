@@ -65,7 +65,7 @@ Sets an httpOnly `session` cookie (JWT, 12h expiry).
 
 **Purpose:** Upload a CSV and create a new dataset (or, in Phase 1, respond with a quality-flag summary requiring confirmation before final persistence if bad rows are detected).
 
-**Request:** `multipart/form-data` — `file` (CSV, ≤100MB), `name` (optional string), `excludeBadRows` (optional boolean, default `false` — set `true` on a re-submit to confirm exclusion after reviewing flags).
+**Request:** `multipart/form-data` — `file` (CSV, ≤500MB), `name` (optional string), `excludeBadRows` (optional boolean, default `false` — set `true` on a re-submit to confirm exclusion after reviewing flags).
 
 **Response:**
 ```json
@@ -88,7 +88,7 @@ Sets an httpOnly `session` cookie (JWT, 12h expiry).
 |--------|-----------|
 | 400 | No file attached, wrong content type, empty CSV |
 | 401 | Not logged in |
-| 413 | File exceeds 100MB |
+| 413 | File exceeds 500MB |
 | 422 | Malformed CSV structure unrecoverable by the parser |
 | 500 | Internal/DB/disk error |
 

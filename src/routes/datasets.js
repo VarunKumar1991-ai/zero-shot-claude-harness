@@ -18,7 +18,7 @@ const { computeProfile } = require("../services/profiler");
 const { saveDatasetFile, removeDatasetDirectory } = require("../storage");
 const db = require("../db/models");
 
-const MAX_FILE_SIZE_BYTES = 100 * 1024 * 1024; // 100MB
+const MAX_FILE_SIZE_BYTES = 500 * 1024 * 1024; // 500MB
 
 const upload = multer({
   storage: multer.memoryStorage(),

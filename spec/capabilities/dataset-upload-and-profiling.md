@@ -6,7 +6,7 @@ Lets a logged-in officer upload a CSV of crime/FIR records, which the system par
 ## Inputs
 | Input | Type | Source | Required |
 |-------|------|--------|----------|
-| CSV file | multipart file, up to ~100MB | Upload form | yes |
+| CSV file | multipart file, up to ~500MB | Upload form | yes |
 | Dataset display name | string | Upload form (defaults to filename) | no |
 
 ## Outputs
@@ -27,7 +27,7 @@ Lets a logged-in officer upload a CSV of crime/FIR records, which the system par
 - Malformed rows (unparseable dates, missing required-looking values, wrong column count) are detected during the full parse, counted per issue type, and reported as `qualityFlags` — never silently dropped from the persisted dataset.
 - The officer must explicitly choose to exclude flagged bad rows (re-submits upload with `excludeBadRows: true`) or cancel and re-upload a fixed file; the system never auto-excludes without this confirmation.
 - Datasets persist indefinitely (no auto-expiry in Phase 1/2) and remain queryable across sessions and days.
-- File size is capped at 100MB; larger uploads are rejected with a clear error before parsing begins.
+- File size is capped at 500MB; larger uploads are rejected with a clear error before parsing begins.
 
 ## Success Criteria
 - [ ] Uploading a real FIR/crime CSV produces a profile with the correct column list, correct row count, and a date range matching the actual min/max date in the file.
