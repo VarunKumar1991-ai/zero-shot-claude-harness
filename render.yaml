@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: up-police-analyst-agent
+    runtime: node
+    plan: free
+    buildCommand: >-
+      npm install &&
+      cd frontend && npm install && npm run build && cd .. &&
+      npm run migrate
+    startCommand: npm start
+    envVars:
+      - key: AGENT_GEMINI_API_KEY
+        sync: false
+      - key: AGENT_JWT_SECRET
+        sync: false
+      - key: AGENT_DATABASE_URL
+        value: sqlite:./data/agent.db
+      - key: PORT
+        value: 8001
+# NOTE: Render's free plan has an ephemeral filesystem — the SQLite DB
+# (uploaded datasets, audit trail, users) resets on every restart/redeploy.
+# Fine for a demo link. For persistent data, upgrade to a paid instance
+# type and add a `disk:` block mounting /opt/render/project/src/data.
