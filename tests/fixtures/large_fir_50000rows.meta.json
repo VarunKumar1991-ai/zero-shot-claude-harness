@@ -1,0 +1,9 @@
+{
+  "offenceType": "Theft",
+  "year": 2025,
+  "month": 6,
+  "monthName": "June",
+  "expectedCount": 1347,
+  "description": "Pre-computed, programmatically-verified count of rows where offence_type == \"Theft\" and fir_date falls in 2025-06 (June 2025). All other rows in this fixture use fir_date years outside 2025 (2023/2024/2026 only), so this combination cannot be matched by any row other than the deliberately-controlled set. Used by the qa-api slice's whole-dataset-vs-sample integration gate test.",
+  "totalRows": 52000
+}

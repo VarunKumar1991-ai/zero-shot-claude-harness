@@ -1,0 +1,501 @@
+case_number,offence_type,fir_date,police_station,district,complainant_name,status
+FIR/MRD/2025/000001,Rioting,2025-06-21,Hazratganj PS,Moradabad,Complainant 1,Closed
+FIR/MRT/2025/000002,Rioting,2025-08-15,Hazratganj PS,Meerut,Complainant 2,Pending Trial
+FIR/GKP/2025/000003,Robbery,2025-04-16,Sadar PS,Gorakhpur,Complainant 3,Closed
+FIR/LKO/2025/000004,Rioting,2025-06-02,Sadar PS,Lucknow,Complainant 4,Under Investigation
+FIR/MRT/2025/000005,Robbery,2025-01-25,Cantt PS,Meerut,Complainant 5,Under Investigation
+,Fraud,2025-11-25,Kotwali PS,Varanasi,Complainant 6,Charge Sheet Filed
+FIR/LKO/2025/000007,Kidnapping,2025-01-19,Hazratganj PS,Lucknow,Complainant 7,Closed
+FIR/AGR/2025/000008,Cheating,2025-04-26,Cantt PS,Agra,Complainant 8,Under Investigation
+FIR/MRT/2025/000009,Theft,2025-04-20,Sadar PS,Meerut,Complainant 9,Closed
+FIR/JHS/2025/000010,Dowry Harassment,2025-02-13,GRP PS,Jhansi,Complainant 10,Under Investigation
+FIR/KNP/2025/000011,Assault,15-01-2025,Sadar PS,Kanpur Nagar,Complainant 11,Pending Trial
+FIR/KNP/2025/000012,Dowry Harassment,2025-09-09,Sadar PS,Kanpur Nagar,Complainant 12,Under Investigation
+FIR/BRL/2025/000013,Robbery,2025-10-31,Cantt PS,Bareilly,Complainant 13,Pending Trial
+FIR/PRG/2025/000014,Assault,2025-07-19,Kotwali PS,Prayagraj,Complainant 14,Closed
+FIR/MRT/2025/000015,Rioting,2025-06-21,GRP PS,Meerut,Complainant 15,Pending Trial
+FIR/PRG/2025/000016,Burglary,2025-07-04,Sadar PS,Prayagraj,Complainant 16,Charge Sheet Filed
+FIR/GKP/2025/000017,Theft,2025-11-15,Kotwali Dehat PS,Gorakhpur,Complainant 17,Under Investigation
+FIR/MTH/2025/000018,Cheating,2025-03-22,Hazratganj PS,Mathura,Complainant 18,Charge Sheet Filed
+FIR/VNS/2025/000019,Assault,2025-08-07,Sadar PS,Varanasi,Complainant 19,Pending Trial
+FIR/MRT/2025/000020,Assault,2025-10-05,GRP PS,Meerut,Complainant 20,Charge Sheet Filed
+FIR/LKO/2025/000021,Murder,2025-09-27,GRP PS,Lucknow,Complainant 21,Under Investigation
+FIR/MRD/2025/000022,Robbery,2025-06-02,Sadar PS,Moradabad,Complainant 22,Closed
+FIR/MRT/2025/000023,Assault,2025-04-01,Hazratganj PS,Meerut,Complainant 23,Pending Trial
+FIR/ALG/2025/000024,Robbery,2025-12-06,Cantt PS,Aligarh,Complainant 24,Charge Sheet Filed
+FIR/GZB/2025/000025,Fraud,2025-06-21,Kotwali PS,Ghaziabad,Complainant 25,Charge Sheet Filed
+FIR/JHS/2025/000026,Fraud,2025-04-19,Cantt PS,Jhansi,Complainant 26,Closed
+FIR/AGR/2025/000027,Burglary,2025-04-10,Sadar PS,Agra,Complainant 27,Under Investigation
+FIR/VNS/2025/000028,Assault,2025-09-04,Kotwali PS,Varanasi,Complainant 28,Under Investigation
+FIR/ALG/2025/000029,Fraud,2025-03-12,Sadar PS,Aligarh,Complainant 29,Pending Trial
+FIR/GBN/2025/000030,Robbery,2025-06-27,Cantt PS,Gautam Buddh Nagar,Complainant 30,Pending Trial
+FIR/JHS/2025/000031,Robbery,2025-06-19,Kotwali Dehat PS,Jhansi,Complainant 31,Under Investigation
+FIR/GZB/2025/000032,Dowry Harassment,2025-07-16,GRP PS,Ghaziabad,Complainant 32,Pending Trial
+FIR/GKP/2025/000033,Theft,2025-01-06,Cantt PS,Gorakhpur,Complainant 33,Closed
+FIR/GKP/2025/000034,Rioting,2025-12-20,Kotwali Dehat PS,Gorakhpur,Complainant 34,Pending Trial
+FIR/ALG/2025/000035,Fraud,2025-05-28,Sadar PS,Aligarh,Complainant 35,Charge Sheet Filed
+FIR/MTH/2025/000036,Assault,2025-08-27,Hazratganj PS,Mathura,Complainant 36,Charge Sheet Filed
+FIR/LKO/2025/000037,Murder,2025-02-21,GRP PS,Lucknow,Complainant 37,Pending Trial
+FIR/PRG/2025/000038,Robbery,2025-09-09,Civil Lines PS,Prayagraj,Complainant 38,Under Investigation
+FIR/MRT/2025/000039,Kidnapping,2025-06-22,Kotwali Dehat PS,Meerut,Complainant 39,Pending Trial
+FIR/VNS/2025/000040,Kidnapping,2025-08-14,Cantt PS,Varanasi,Complainant 40,Charge Sheet Filed
+FIR/PRG/2025/000041,Assault,2025-04-05,Cantt PS,Prayagraj,Complainant 41,Charge Sheet Filed
+FIR/BRL/2025/000042,Murder,2025-07-14,Civil Lines PS,Bareilly,Complainant 42,Under Investigation
+FIR/VNS/2025/000043,Theft,2025-12-27,Cantt PS,Varanasi,Complainant 43,Closed
+FIR/KNP/2025/000044,Theft,2025-10-12,Hazratganj PS,Kanpur Nagar,Complainant 44,Closed
+FIR/ALG/2025/000045,Dowry Harassment,2025-02-22,Sadar PS,Aligarh,Complainant 45,Pending Trial
+FIR/ALG/2025/000046,Kidnapping,2025-10-06,Civil Lines PS,Aligarh,Complainant 46,Under Investigation
+FIR/LKO/2025/000047,Murder,2025-04-21,Cantt PS,Lucknow,Complainant 47,Pending Trial
+FIR/LKO/2025/000048,Assault,09-05-2025,Kotwali Dehat PS,Lucknow,Complainant 48,Closed
+FIR/AGR/2025/000049,Dowry Harassment,2025-12-09,Cantt PS,Agra,Complainant 49,Pending Trial
+FIR/MTH/2025/000050,Kidnapping,2025-09-25,Kotwali PS,Mathura,Complainant 50,Charge Sheet Filed
+FIR/GKP/2025/000051,Murder,2025-07-18,Cantt PS,Gorakhpur,Complainant 51,Pending Trial
+FIR/MTH/2025/000052,Assault,2025-10-20,Sadar PS,Mathura,Complainant 52,Pending Trial
+FIR/GZB/2025/000053,Assault,2025-11-27,Kotwali PS,Ghaziabad,Complainant 53,Charge Sheet Filed
+FIR/BRL/2025/000054,Murder,2025-11-27,Sadar PS,Bareilly,Complainant 54,Under Investigation
+FIR/MRT/2025/000055,Fraud,2025-12-09,Sadar PS,Meerut,Complainant 55,Pending Trial
+FIR/GKP/2025/000056,Robbery,2025-09-26,GRP PS,Gorakhpur,Complainant 56,Closed
+FIR/BRL/2025/000057,Fraud,2025-01-28,Sadar PS,Bareilly,Complainant 57,Charge Sheet Filed
+FIR/PRG/2025/000058,Cheating,2025-08-17,Civil Lines PS,Prayagraj,Complainant 58,Under Investigation
+FIR/KNP/2025/000059,Assault,2025-02-30,Kotwali Dehat PS,Kanpur Nagar,Complainant 59,Closed
+FIR/KNP/2025/000060,Burglary,2025-01-22,Hazratganj PS,Kanpur Nagar,Complainant 60,Pending Trial
+FIR/MRD/2025/000061,Rioting,2025-11-11,Civil Lines PS,Moradabad,Complainant 61,Closed
+FIR/AGR/2025/000062,Burglary,2025-06-08,Kotwali Dehat PS,Agra,Complainant 62,Closed
+FIR/BRL/2025/000063,Robbery,2025-08-25,Sadar PS,Bareilly,Complainant 63,Pending Trial
+FIR/KNP/2025/000064,Theft,2025-01-11,Hazratganj PS,Kanpur Nagar,Complainant 64,Under Investigation
+FIR/MTH/2025/000065,Rioting,2025-07-11,Sadar PS,Mathura,Complainant 65,Under Investigation
+FIR/GKP/2025/000066,Assault,2025-10-07,Kotwali Dehat PS,Gorakhpur,Complainant 66,Closed
+FIR/VNS/2025/000067,Cheating,2025-01-14,GRP PS,Varanasi,Complainant 67,Pending Trial
+FIR/BRL/2025/000068,Robbery,2025-12-05,Cantt PS,Bareilly,Complainant 68,Closed
+FIR/AGR/2025/000069,Burglary,2025-10-05,Sadar PS,Agra,Complainant 69,Closed
+FIR/ALG/2025/000070,Dowry Harassment,2025-03-17,Kotwali Dehat PS,Aligarh,Complainant 70,Under Investigation
+FIR/MTH/2025/000071,Burglary,2025-07-02,Kotwali PS,Mathura,Complainant 71,Closed
+FIR/GKP/2025/000072,Rioting,2025-04-14,Hazratganj PS,Gorakhpur,Complainant 72,Closed
+FIR/BRL/2025/000073,Rioting,2025-03-03,Civil Lines PS,Bareilly,Complainant 73,Pending Trial
+FIR/AGR/2025/000074,Kidnapping,2025-06-19,Cantt PS,Agra,Complainant 74,Closed
+FIR/VNS/2025/000075,Rioting,2025-12-11,Hazratganj PS,Varanasi,Complainant 75,Closed
+FIR/GKP/2025/000076,Fraud,2025-06-08,Cantt PS,Gorakhpur,Complainant 76,Under Investigation
+FIR/GBN/2025/000077,Fraud,2025-05-08,Cantt PS,Gautam Buddh Nagar,Complainant 77,Under Investigation
+FIR/MRD/2025/000078,Dowry Harassment,2025-01-24,Sadar PS,Moradabad,Complainant 78,Pending Trial
+FIR/LKO/2025/000079,Kidnapping,2025-08-15,Cantt PS,Lucknow,Complainant 79,Charge Sheet Filed
+FIR/PRG/2025/000080,Theft,2025-07-22,Civil Lines PS,Prayagraj,Complainant 80,Closed
+FIR/VNS/2025/000081,Cheating,2025-05-29,Hazratganj PS,Varanasi,Complainant 81,Closed
+FIR/JHS/2025/000082,Theft,2025-06-18,Cantt PS,Jhansi,Complainant 82,Charge Sheet Filed
+FIR/BRL/2025/000083,Robbery,2025-10-23,Sadar PS,Bareilly,Complainant 83,Pending Trial
+FIR/GBN/2025/000084,Theft,2025-06-28,Civil Lines PS,Gautam Buddh Nagar,Complainant 84,Closed
+FIR/BRL/2025/000085,Kidnapping,2025-09-19,Kotwali Dehat PS,Bareilly,Complainant 85,Closed
+FIR/MTH/2025/000086,Dowry Harassment,2025-12-26,GRP PS,Mathura,Complainant 86,Pending Trial
+FIR/VNS/2025/000087,Dowry Harassment,2025-02-01,Cantt PS,Varanasi,Complainant 87,Pending Trial
+FIR/SHN/2025/000088,Assault,2025-10-27,Cantt PS,Saharanpur,Complainant 88,Pending Trial
+FIR/MRD/2025/000089,,2025-04-12,Kotwali Dehat PS,Moradabad,Complainant 89,Under Investigation
+FIR/VNS/2025/000090,Murder,2025-03-12,Sadar PS,Varanasi,Complainant 90,Pending Trial
+FIR/PRG/2025/000091,Cheating,2025-10-01,Sadar PS,Prayagraj,Complainant 91,Pending Trial
+FIR/AGR/2025/000092,Rioting,2025-08-15,Kotwali PS,Agra,Complainant 92,Pending Trial
+FIR/MRD/2025/000093,Fraud,2025-04-16,GRP PS,Moradabad,Complainant 93,Under Investigation
+FIR/ALG/2025/000094,Murder,2025-01-25,Cantt PS,Aligarh,Complainant 94,Closed
+FIR/GBN/2025/000095,Kidnapping,2025-05-06,GRP PS,Gautam Buddh Nagar,Complainant 95,Under Investigation
+FIR/SHN/2025/000096,Kidnapping,2025-09-17,Sadar PS,Saharanpur,Complainant 96,Pending Trial
+FIR/GKP/2025/000097,Theft,2025-01-03,GRP PS,Gorakhpur,Complainant 97,Under Investigation
+FIR/LKO/2025/000098,Theft,2025-07-24,Sadar PS,Lucknow,Complainant 98,Under Investigation
+FIR/PRG/2025/000099,Assault,2025-10-07,Kotwali Dehat PS,Prayagraj,Complainant 99,Closed
+FIR/LKO/2025/000100,Kidnapping,2025-08-27,Sadar PS,Lucknow,Complainant 100,Charge Sheet Filed
+FIR/ALG/2025/000101,Kidnapping,2025-05-07,Civil Lines PS,Aligarh,Complainant 101,Closed
+FIR/SHN/2025/000102,Dowry Harassment,2025-04-29,Cantt PS,Saharanpur,Complainant 102,Closed
+FIR/GZB/2025/000103,Dowry Harassment,2025-08-28,Sadar PS,Ghaziabad,Complainant 103,Charge Sheet Filed
+FIR/JHS/2025/000104,Dowry Harassment,2025-07-08,Hazratganj PS,Jhansi,Complainant 104,Charge Sheet Filed
+FIR/MTH/2025/000105,Dowry Harassment,2025-07-01,Sadar PS,Mathura,Complainant 105,Closed
+FIR/MTH/2025/000106,Dowry Harassment,2025-04-07,GRP PS,Mathura,Complainant 106,Charge Sheet Filed
+FIR/BRL/2025/000107,Burglary,2025-05-09,GRP PS,Bareilly,Complainant 107,Closed
+FIR/MRT/2025/000108,Assault,2025-07-14,Hazratganj PS,Meerut,Complainant 108,Closed
+FIR/JHS/2025/000109,Kidnapping,2025-08-28,Sadar PS,Jhansi,Complainant 109,Pending Trial
+FIR/PRG/2025/000110,Fraud,2025-08-19,Sadar PS,Prayagraj,Complainant 110,Closed
+FIR/PRG/2025/000111,Theft,2025-03-23,Kotwali PS,Prayagraj,Complainant 111,Charge Sheet Filed
+FIR/LKO/2025/000112,Murder,2025-02-08,Civil Lines PS,Lucknow,Complainant 112,Charge Sheet Filed
+FIR/SHN/2025/000113,Cheating,07-02-2025,Hazratganj PS,Saharanpur,Complainant 113,Closed
+FIR/GZB/2025/000114,Murder,2025-05-15,Kotwali Dehat PS,Ghaziabad,Complainant 114,Under Investigation
+FIR/VNS/2025/000115,Rioting,2025-05-27,GRP PS,Varanasi,Complainant 115,Charge Sheet Filed
+FIR/VNS/2025/000116,Murder,2025-08-24,GRP PS,Varanasi,Complainant 116,Charge Sheet Filed
+FIR/GZB/2025/000117,Dowry Harassment,2025-02-17,Hazratganj PS,Ghaziabad,Complainant 117,Under Investigation
+FIR/GBN/2025/000118,Kidnapping,2025-02-15,Sadar PS,Gautam Buddh Nagar,Complainant 118,Pending Trial
+FIR/BRL/2025/000119,Kidnapping,2025-09-28,GRP PS,Bareilly,Complainant 119,Under Investigation
+FIR/AGR/2025/000120,Assault,2025-12-22,Cantt PS,Agra,Complainant 120,Charge Sheet Filed
+FIR/MRT/2025/000121,Assault,2025-05-20,GRP PS,Meerut,Complainant 121,Pending Trial
+FIR/AGR/2025/000122,Fraud,2025-08-17,Kotwali Dehat PS,Agra,Complainant 122,Closed
+FIR/PRG/2025/000123,Burglary,2025-12-14,Civil Lines PS,Prayagraj,Complainant 123,Under Investigation
+FIR/LKO/2025/000124,Assault,2025-02-22,Cantt PS,Lucknow,Complainant 124,Charge Sheet Filed
+FIR/GZB/2025/000125,Cheating,2025-12-14,Kotwali PS,Ghaziabad,Complainant 125,Closed
+FIR/MRT/2025/000126,Burglary,2025-08-04,Kotwali Dehat PS,Meerut,Complainant 126,Charge Sheet Filed
+FIR/KNP/2025/000127,Theft,2025-12-24,Sadar PS,Kanpur Nagar,Complainant 127,Under Investigation
+FIR/MRD/2025/000128,Robbery,2025-11-26,Hazratganj PS,Moradabad,Complainant 128,Pending Trial
+FIR/PRG/2025/000129,Theft,2025-06-12,Civil Lines PS,Prayagraj,Complainant 129,Charge Sheet Filed
+FIR/BRL/2025/000130,Theft,2025-05-30,Kotwali Dehat PS,Bareilly,Complainant 130,Under Investigation
+FIR/KNP/2025/000131,Murder,2025-03-25,GRP PS,Kanpur Nagar,Complainant 131,Pending Trial
+FIR/JHS/2025/000132,Cheating,2025-03-16,Kotwali Dehat PS,Jhansi,Complainant 132,Under Investigation
+FIR/LKO/2025/000133,Dowry Harassment,2025-11-28,Hazratganj PS,Lucknow,Complainant 133,Under Investigation
+FIR/LKO/2025/000134,Murder,2025-12-20,Civil Lines PS,Lucknow,Complainant 134,Closed
+FIR/SHN/2025/000135,Theft,2025-10-27,Hazratganj PS,Saharanpur,Complainant 135,Closed
+FIR/GZB/2025/000136,Burglary,2025-01-28,GRP PS,Ghaziabad,Complainant 136,Closed
+FIR/AGR/2025/000137,Rioting,2025-01-02,GRP PS,Agra,Complainant 137,Charge Sheet Filed
+FIR/MTH/2025/000138,Cheating,2025-12-05,Kotwali PS,Mathura,Complainant 138,Charge Sheet Filed
+FIR/KNP/2025/000139,Kidnapping,2025-08-19,Sadar PS,Kanpur Nagar,Complainant 139,Closed
+FIR/LKO/2025/000140,Murder,2025-11-19,Kotwali PS,Lucknow,Complainant 140,Pending Trial
+FIR/AGR/2025/000141,Robbery,2025-06-29,Hazratganj PS,Agra,Complainant 141,Under Investigation
+FIR/MRD/2025/000142,Kidnapping,2025-08-14,Kotwali PS,Moradabad,Complainant 142,Charge Sheet Filed
+FIR/PRG/2025/000143,Theft,2025-09-19,Sadar PS,Prayagraj,Complainant 143,Closed
+FIR/JHS/2025/000144,Fraud,2025-11-24,Hazratganj PS,Jhansi,Complainant 144,Charge Sheet Filed
+FIR/MRD/2025/000145,Robbery,2025-05-31,GRP PS,Moradabad,Complainant 145,Charge Sheet Filed
+FIR/JHS/2025/000146,Theft,2025-11-15,GRP PS,Jhansi,Complainant 146,Charge Sheet Filed
+FIR/BRL/2025/000147,Assault,2025-10-23,Kotwali PS,Bareilly,Complainant 147,Pending Trial
+FIR/LKO/2025/000148,Cheating,2025-12-15,Kotwali PS,Lucknow,Complainant 148,Charge Sheet Filed
+FIR/GZB/2025/000149,Burglary,2025-04-01,Sadar PS,Ghaziabad,Complainant 149,Under Investigation
+FIR/AGR/2025/000150,Cheating,2025-01-03,Kotwali Dehat PS,Agra,Complainant 150,Closed
+FIR/PRG/2025/000151,Murder,2025-05-19,,Prayagraj,Complainant 151,Pending Trial
+FIR/JHS/2025/000152,Murder,2025-09-15,Kotwali PS,Jhansi,Complainant 152,Closed
+FIR/MTH/2025/000153,Fraud,2025-04-13,Kotwali PS,Mathura,Complainant 153,Closed
+FIR/GZB/2025/000154,Murder,2025-03-25,Cantt PS,Ghaziabad,Complainant 154,Pending Trial
+FIR/JHS/2025/000155,Kidnapping,2025-11-16,Kotwali PS,Jhansi,Complainant 155,Pending Trial
+FIR/AGR/2025/000156,Murder,2025-01-01,Civil Lines PS,Agra,Complainant 156,Closed
+FIR/VNS/2025/000157,Robbery,2025-03-12,GRP PS,Varanasi,Complainant 157,Charge Sheet Filed
+FIR/SHN/2025/000158,Rioting,2025-11-08,Kotwali Dehat PS,Saharanpur,Complainant 158,Charge Sheet Filed
+FIR/AGR/2025/000159,Cheating,2025-01-24,GRP PS,Agra,Complainant 159,Charge Sheet Filed
+FIR/AGR/2025/000160,Murder,2025-08-09,GRP PS,Agra,Complainant 160,Pending Trial
+FIR/MRD/2025/000161,Kidnapping,2025-08-29,Kotwali PS,Moradabad,Complainant 161,Pending Trial
+FIR/GBN/2025/000162,Rioting,2025-02-21,Kotwali Dehat PS,Gautam Buddh Nagar,Complainant 162,Under Investigation
+FIR/KNP/2025/000163,Assault,2025-11-17,GRP PS,Kanpur Nagar,Complainant 163,Charge Sheet Filed
+FIR/GZB/2025/000164,Theft,2025-07-09,GRP PS,Ghaziabad,Complainant 164,Pending Trial
+FIR/ALG/2025/000165,Robbery,2025-07-03,GRP PS,Aligarh,Complainant 165,Charge Sheet Filed
+FIR/MRT/2025/000166,Murder,2025-12-08,Kotwali PS,Meerut,Complainant 166,Under Investigation
+FIR/AGR/2025/000167,Dowry Harassment,2025-11-20,Kotwali PS,Agra,Complainant 167,Pending Trial
+FIR/VNS/2025/000168,Fraud,2025-07-19,Kotwali PS,Varanasi,Complainant 168,Charge Sheet Filed
+FIR/BRL/2025/000169,Murder,2025-06-07,Sadar PS,Bareilly,Complainant 169,Pending Trial
+FIR/MRD/2025/000170,Assault,2025-02-05,GRP PS,Moradabad,Complainant 170,Under Investigation
+FIR/BRL/2025/000171,Burglary,2025-10-01,Cantt PS,Bareilly,Complainant 171,Under Investigation
+FIR/GKP/2025/000172,Burglary,2025-06-19,Cantt PS,Gorakhpur,Complainant 172,Closed
+FIR/GBN/2025/000173,Robbery,2025-12-01,Kotwali Dehat PS,Gautam Buddh Nagar,Complainant 173,Pending Trial
+FIR/BRL/2025/000174,Burglary,2025-01-08,Kotwali Dehat PS,Bareilly,Complainant 174,Charge Sheet Filed
+FIR/KNP/2025/000175,Murder,2025-04-22,Kotwali Dehat PS,Kanpur Nagar,Complainant 175,Pending Trial
+FIR/BRL/2025/000176,Dowry Harassment,2025-11-22,Kotwali Dehat PS,Bareilly,Complainant 176,Charge Sheet Filed
+FIR/VNS/2025/000177,Kidnapping,2025-01-20,Hazratganj PS,Varanasi,Complainant 177,Pending Trial
+FIR/MTH/2025/000178,Dowry Harassment,2025-09-08,Kotwali Dehat PS,Mathura,Complainant 178,Under Investigation
+FIR/MRT/2025/000179,Murder,2025-07-31,Kotwali Dehat PS,Meerut,Complainant 179,Closed
+FIR/GBN/2025/000180,Rioting,2025-12-27,Sadar PS,Gautam Buddh Nagar,Complainant 180,Pending Trial
+FIR/GZB/2025/000181,Theft,2025-07-12,Hazratganj PS,Ghaziabad,Complainant 181,Closed
+FIR/AGR/2025/000182,Burglary,2025-09-24,Kotwali PS,Agra,Complainant 182,Under Investigation
+FIR/VNS/2025/000183,Dowry Harassment,2025-03-31,Kotwali PS,Varanasi,Complainant 183,Charge Sheet Filed
+FIR/JHS/2025/000184,Burglary,2025-09-10,Hazratganj PS,Jhansi,Complainant 184,Closed
+FIR/JHS/2025/000185,Rioting,2025-09-26,Sadar PS,Jhansi,Complainant 185,Closed
+FIR/AGR/2025/000186,Fraud,2025-04-07,GRP PS,Agra,Complainant 186,Under Investigation
+FIR/ALG/2025/000187,Assault,2025-10-29,GRP PS,Aligarh,Complainant 187,Closed
+FIR/VNS/2025/000188,Kidnapping,2025-03-28,Kotwali PS,Varanasi,Complainant 188,Pending Trial
+FIR/LKO/2025/000189,Murder,2025-01-12,Civil Lines PS,Lucknow,Complainant 189,Closed
+FIR/JHS/2025/000190,Theft,2025-03-02,Hazratganj PS,Jhansi,Complainant 190,Under Investigation
+FIR/MTH/2025/000191,Assault,2025-11-15,Kotwali PS,Mathura,Complainant 191,Closed
+FIR/AGR/2025/000192,Murder,2025-04-15,Cantt PS,Agra,Complainant 192,Pending Trial
+FIR/ALG/2025/000193,Rioting,2025-01-16,Sadar PS,Aligarh,Complainant 193,Under Investigation
+FIR/VNS/2025/000194,Dowry Harassment,2025-07-11,Hazratganj PS,Varanasi,Complainant 194,Under Investigation
+FIR/BRL/2025/000195,Assault,2025-05-17,Cantt PS,Bareilly,Complainant 195,Under Investigation
+FIR/BRL/2025/000196,Robbery,2025-09-01,Hazratganj PS,Bareilly,Complainant 196,Under Investigation
+FIR/PRG/2025/000197,Rioting,2025-12-20,Kotwali PS,Prayagraj,Complainant 197,Closed
+FIR/AGR/2025/000198,Robbery,2025-12-22,Kotwali Dehat PS,Agra,Complainant 198,Closed
+FIR/MRD/2025/000199,Murder,2025-05-18,Hazratganj PS,Moradabad,Complainant 199,Charge Sheet Filed
+FIR/AGR/2025/000200,Fraud,2025-02-30,Cantt PS,Agra,Complainant 200,Charge Sheet Filed
+FIR/AGR/2025/000201,Assault,2025-05-08,Kotwali Dehat PS,Agra,Complainant 201,Under Investigation
+FIR/PRG/2025/000202,Murder,2025-10-15,Civil Lines PS,Prayagraj,Complainant 202,Closed
+FIR/KNP/2025/000203,Rioting,2025-03-07,Cantt PS,Kanpur Nagar,Complainant 203,Charge Sheet Filed
+FIR/GKP/2025/000204,Fraud,2025-07-26,Sadar PS,Gorakhpur,Complainant 204,Charge Sheet Filed
+FIR/AGR/2025/000205,Dowry Harassment,2025-09-29,Kotwali Dehat PS,Agra,Complainant 205,Pending Trial
+FIR/MRD/2025/000206,Robbery,2025-03-04,GRP PS,Moradabad,Complainant 206,Closed
+FIR/BRL/2025/000207,Burglary,2025-07-19,GRP PS,Bareilly,Complainant 207,Charge Sheet Filed
+FIR/PRG/2025/000208,Rioting,2025-12-23,Civil Lines PS,Prayagraj,Complainant 208,Closed
+FIR/JHS/2025/000209,Robbery,2025-03-02,Kotwali PS,Jhansi,Complainant 209,Charge Sheet Filed
+FIR/GBN/2025/000210,Murder,2025-11-02,GRP PS,Gautam Buddh Nagar,Complainant 210,Charge Sheet Filed
+FIR/MRD/2025/000211,Fraud,2025-04-24,Kotwali Dehat PS,Moradabad,Complainant 211,Pending Trial
+FIR/MRT/2025/000212,Robbery,2025-03-16,Hazratganj PS,Meerut,Complainant 212,Pending Trial
+FIR/ALG/2025/000213,Dowry Harassment,2025-08-20,Kotwali Dehat PS,Aligarh,Complainant 213,Charge Sheet Filed
+FIR/VNS/2025/000214,Theft,2025-01-24,Civil Lines PS,Varanasi,Complainant 214,Under Investigation
+FIR/KNP/2025/000215,Fraud,2025-04-14,Civil Lines PS,Kanpur Nagar,Complainant 215,Closed
+FIR/MTH/2025/000216,Fraud,2025-06-12,Civil Lines PS,Mathura,Complainant 216,Pending Trial
+FIR/ALG/2025/000217,Robbery,2025-02-03,Civil Lines PS,Aligarh,Complainant 217,Under Investigation
+FIR/SHN/2025/000218,Assault,2025-09-07,Kotwali PS,Saharanpur,Complainant 218,Pending Trial
+FIR/KNP/2025/000219,Fraud,2025-02-27,Kotwali PS,Kanpur Nagar,Complainant 219,Under Investigation
+FIR/KNP/2025/000220,Kidnapping,2025-12-31,Cantt PS,Kanpur Nagar,Complainant 220,Charge Sheet Filed
+FIR/PRG/2025/000221,Cheating,2025-02-19,Hazratganj PS,Prayagraj,Complainant 221,Pending Trial
+FIR/MTH/2025/000222,Fraud,2025-08-09,Sadar PS,Mathura,Complainant 222,Under Investigation
+FIR/VNS/2025/000223,Dowry Harassment,2025-08-12,GRP PS,Varanasi,Complainant 223,Under Investigation
+FIR/JHS/2025/000224,Assault,2025-05-13,Kotwali PS,Jhansi,Complainant 224,Closed
+FIR/MTH/2025/000225,Fraud,2025-10-02,Hazratganj PS,Mathura,Complainant 225,Under Investigation
+FIR/GBN/2025/000226,Theft,2025-07-24,Kotwali Dehat PS,Gautam Buddh Nagar,Complainant 226,Closed
+FIR/BRL/2025/000227,Cheating,2025-08-28,Hazratganj PS,Bareilly,Complainant 227,Pending Trial
+FIR/PRG/2025/000228,Dowry Harassment,2025-07-25,Cantt PS,Prayagraj,Complainant 228,Under Investigation
+FIR/PRG/2025/000229,Rioting,2025-02-27,Cantt PS,Prayagraj,Complainant 229,Pending Trial
+FIR/MRT/2025/000230,Cheating,2025-03-18,Civil Lines PS,Meerut,Complainant 230,Under Investigation
+FIR/ALG/2025/000231,Dowry Harassment,2025-02-27,Cantt PS,Aligarh,Complainant 231,Charge Sheet Filed
+FIR/PRG/2025/000232,Burglary,2025-06-09,Kotwali PS,Prayagraj,Complainant 232,Under Investigation
+FIR/MTH/2025/000233,Fraud,2025-02-03,Hazratganj PS,Mathura,Complainant 233,Pending Trial
+FIR/PRG/2025/000234,Murder,30-07-2025,Kotwali PS,Prayagraj,Complainant 234,Closed
+FIR/ALG/2025/000235,Theft,2025-06-09,Civil Lines PS,Aligarh,Complainant 235,Pending Trial
+FIR/GKP/2025/000236,Kidnapping,2025-10-09,Kotwali PS,Gorakhpur,Complainant 236,Closed
+FIR/GKP/2025/000237,Dowry Harassment,2025-03-29,Civil Lines PS,Gorakhpur,Complainant 237,Charge Sheet Filed
+FIR/JHS/2025/000238,Burglary,2025-07-01,Kotwali Dehat PS,Jhansi,Complainant 238,Pending Trial
+FIR/GKP/2025/000239,Assault,2025-03-10,Hazratganj PS,Gorakhpur,Complainant 239,Charge Sheet Filed
+FIR/MTH/2025/000240,Assault,2025-02-04,Hazratganj PS,Mathura,Complainant 240,Under Investigation
+FIR/AGR/2025/000241,Burglary,2025-12-10,Kotwali Dehat PS,Agra,Complainant 241,Under Investigation
+FIR/JHS/2025/000242,Murder,2025-07-05,GRP PS,Jhansi,Complainant 242,Closed
+FIR/VNS/2025/000243,Murder,2025-10-03,Civil Lines PS,Varanasi,Complainant 243,Under Investigation
+FIR/MTH/2025/000244,Assault,2025-09-23,Hazratganj PS,Mathura,Complainant 244,Charge Sheet Filed
+FIR/KNP/2025/000245,Assault,2025-11-10,Sadar PS,Kanpur Nagar,Complainant 245,Charge Sheet Filed
+FIR/GZB/2025/000246,Murder,2025-02-17,Sadar PS,Ghaziabad,Complainant 246,Closed
+FIR/LKO/2025/000247,Fraud,2025-04-21,Civil Lines PS,Lucknow,Complainant 247,Pending Trial
+FIR/MRD/2025/000248,Kidnapping,2025-10-17,GRP PS,Moradabad,Complainant 248,Under Investigation
+FIR/LKO/2025/000249,Robbery,2025-09-30,GRP PS,Lucknow,Complainant 249,Closed
+FIR/LKO/2025/000250,Rioting,2025-11-07,Civil Lines PS,Lucknow,Complainant 250,Pending Trial
+FIR/PRG/2025/000251,Murder,2025-02-11,Kotwali PS,Prayagraj,Complainant 251,Under Investigation
+FIR/JHS/2025/000252,Theft,2025-11-27,Kotwali PS,Jhansi,Complainant 252,Charge Sheet Filed
+FIR/GKP/2025/000253,Kidnapping,2025-12-29,Hazratganj PS,Gorakhpur,Complainant 253,Pending Trial
+FIR/MTH/2025/000254,Burglary,2025-09-25,GRP PS,Mathura,Complainant 254,Closed
+FIR/ALG/2025/000255,Theft,2025-04-26,GRP PS,Aligarh,Complainant 255,Under Investigation
+FIR/GKP/2025/000256,Kidnapping,2025-08-22,Civil Lines PS,Gorakhpur,Complainant 256,Closed
+FIR/GZB/2025/000257,Robbery,2025-08-04,Civil Lines PS,Ghaziabad,Complainant 257,Charge Sheet Filed
+FIR/VNS/2025/000258,Rioting,2025-05-04,Sadar PS,Varanasi,Complainant 258,Under Investigation
+FIR/KNP/2025/000259,Theft,2025-12-25,Hazratganj PS,Kanpur Nagar,Complainant 259,Charge Sheet Filed
+FIR/AGR/2025/000260,Kidnapping,2025-07-31,Sadar PS,Agra,Complainant 260,Closed
+FIR/GZB/2025/000261,Fraud,2025-08-03,Sadar PS,Ghaziabad,Complainant 261,Pending Trial
+FIR/VNS/2025/000262,Dowry Harassment,2025-01-25,Hazratganj PS,Varanasi,Complainant 262,Under Investigation
+FIR/ALG/2025/000263,Fraud,2025-09-24,Civil Lines PS,Aligarh,Complainant 263,Pending Trial
+FIR/PRG/2025/000264,Dowry Harassment,2025-02-28,Sadar PS,Prayagraj,Complainant 264,Closed
+FIR/MRD/2025/000265,Theft,2025-06-09,Kotwali Dehat PS,Moradabad,Complainant 265,Under Investigation
+FIR/SHN/2025/000266,Murder,2025-09-05,GRP PS,Saharanpur,Complainant 266,Closed
+FIR/GBN/2025/000267,Burglary,2025-10-28,Sadar PS,Gautam Buddh Nagar,Complainant 267,Under Investigation
+FIR/VNS/2025/000268,Rioting,2025-08-09,Cantt PS,Varanasi,Complainant 268,Charge Sheet Filed
+FIR/MRD/2025/000269,Burglary,2025-01-17,Civil Lines PS,Moradabad,Complainant 269,Under Investigation
+FIR/VNS/2025/000270,Robbery,2025-10-06,Kotwali Dehat PS,Varanasi,Complainant 270,Charge Sheet Filed
+FIR/MRT/2025/000271,Murder,2025-01-21,Kotwali Dehat PS,Meerut,Complainant 271,Under Investigation
+FIR/MRD/2025/000272,Robbery,2025-10-25,Civil Lines PS,Moradabad,Complainant 272,Charge Sheet Filed
+FIR/GZB/2025/000273,Assault,2025-08-03,Cantt PS,Ghaziabad,Complainant 273,Charge Sheet Filed
+FIR/SHN/2025/000274,Dowry Harassment,2025-06-19,Kotwali Dehat PS,Saharanpur,Complainant 274,Closed
+FIR/JHS/2025/000275,Robbery,2025-08-28,GRP PS,Jhansi,Complainant 275,Under Investigation
+,Fraud,2025-12-17,Cantt PS,Ghaziabad,Complainant 276,Charge Sheet Filed
+FIR/BRL/2025/000277,Rioting,2025-05-09,Hazratganj PS,Bareilly,Complainant 277,Pending Trial
+FIR/ALG/2025/000278,Cheating,2025-03-11,Sadar PS,Aligarh,Complainant 278,Closed
+FIR/JHS/2025/000279,Burglary,2025-05-12,Kotwali PS,Jhansi,Complainant 279,Closed
+FIR/GKP/2025/000280,Rioting,2025-06-08,Civil Lines PS,Gorakhpur,Complainant 280,Closed
+FIR/JHS/2025/000281,Murder,2025-07-26,Sadar PS,Jhansi,Complainant 281,Closed
+FIR/PRG/2025/000282,Burglary,2025-05-27,Civil Lines PS,Prayagraj,Complainant 282,Charge Sheet Filed
+FIR/SHN/2025/000283,Cheating,2025-01-21,Kotwali PS,Saharanpur,Complainant 283,Charge Sheet Filed
+FIR/KNP/2025/000284,Assault,2025-05-29,GRP PS,Kanpur Nagar,Complainant 284,Charge Sheet Filed
+FIR/GBN/2025/000285,Rioting,2025-01-23,Sadar PS,Gautam Buddh Nagar,Complainant 285,Under Investigation
+FIR/MTH/2025/000286,Theft,2025-03-06,Hazratganj PS,Mathura,Complainant 286,Pending Trial
+FIR/GBN/2025/000287,Theft,2025-04-01,GRP PS,Gautam Buddh Nagar,Complainant 287,Closed
+FIR/JHS/2025/000288,Assault,2025-12-27,GRP PS,Jhansi,Complainant 288,Closed
+FIR/VNS/2025/000289,Theft,2025-10-18,Cantt PS,Varanasi,Complainant 289,Charge Sheet Filed
+FIR/ALG/2025/000290,Fraud,2025-04-06,Kotwali Dehat PS,Aligarh,Complainant 290,Pending Trial
+FIR/SHN/2025/000291,Kidnapping,2025-09-19,Cantt PS,Saharanpur,Complainant 291,Closed
+FIR/KNP/2025/000292,Robbery,2025-03-10,Hazratganj PS,Kanpur Nagar,Complainant 292,Under Investigation
+FIR/KNP/2025/000293,Assault,2025-11-20,Sadar PS,Kanpur Nagar,Complainant 293,Charge Sheet Filed
+FIR/GBN/2025/000294,Robbery,2025-11-29,GRP PS,Gautam Buddh Nagar,Complainant 294,Pending Trial
+FIR/VNS/2025/000295,Assault,2025-06-15,Sadar PS,Varanasi,Complainant 295,Closed
+FIR/MRT/2025/000296,Assault,2025-09-14,Civil Lines PS,Meerut,Complainant 296,Under Investigation
+FIR/VNS/2025/000297,Robbery,2025-06-30,Kotwali PS,Varanasi,Complainant 297,Under Investigation
+FIR/ALG/2025/000298,Murder,2025-01-05,Civil Lines PS,Aligarh,Complainant 298,Charge Sheet Filed
+FIR/SHN/2025/000299,Dowry Harassment,2025-08-12,Kotwali PS,Saharanpur,Complainant 299,Charge Sheet Filed
+FIR/VNS/2025/000300,Burglary,2025-10-04,Civil Lines PS,Varanasi,Complainant 300,Charge Sheet Filed
+FIR/MRT/2025/000301,Cheating,2025-07-07,Hazratganj PS,Meerut,Complainant 301,Charge Sheet Filed
+FIR/MRT/2025/000302,Assault,2025-11-06,Hazratganj PS,Meerut,Complainant 302,Under Investigation
+FIR/GKP/2025/000303,Dowry Harassment,2025-04-06,Cantt PS,Gorakhpur,Complainant 303,Pending Trial
+FIR/SHN/2025/000304,Fraud,2025-08-28,Civil Lines PS,Saharanpur,Complainant 304,Closed
+FIR/MRD/2025/000305,Dowry Harassment,2025-09-28,GRP PS,Moradabad,Complainant 305,Under Investigation
+FIR/MTH/2025/000306,Burglary,2025-05-08,Civil Lines PS,Mathura,Complainant 306,Pending Trial
+FIR/BRL/2025/000307,Murder,2025-02-13,Hazratganj PS,Bareilly,Complainant 307,Pending Trial
+FIR/MRD/2025/000308,Rioting,2025-03-28,Cantt PS,Moradabad,Complainant 308,Closed
+FIR/PRG/2025/000309,Robbery,2025-02-13,Civil Lines PS,Prayagraj,Complainant 309,Closed
+FIR/ALG/2025/000310,Murder,2025-01-10,Civil Lines PS,Aligarh,Complainant 310,Pending Trial
+FIR/VNS/2025/000311,Robbery,2025-03-09,Kotwali Dehat PS,Varanasi,Complainant 311,Under Investigation
+FIR/MRD/2025/000312,Dowry Harassment,2025-12-18,Hazratganj PS,Moradabad,Complainant 312,Closed
+FIR/AGR/2025/000313,Theft,2025-07-08,Kotwali PS,Agra,Complainant 313,Closed
+FIR/MTH/2025/000314,Murder,2025-01-05,Civil Lines PS,Mathura,Complainant 314,Closed
+FIR/KNP/2025/000315,Theft,2025-07-22,Cantt PS,Kanpur Nagar,Complainant 315,Charge Sheet Filed
+FIR/MTH/2025/000316,Cheating,2025-12-18,Hazratganj PS,Mathura,Complainant 316,Pending Trial
+FIR/GBN/2025/000317,Murder,2025-05-18,Kotwali PS,Gautam Buddh Nagar,Complainant 317,Charge Sheet Filed
+FIR/BRL/2025/000318,Dowry Harassment,2025-12-15,Cantt PS,Bareilly,Complainant 318,Closed
+FIR/LKO/2025/000319,Theft,2025-02-05,GRP PS,Lucknow,Complainant 319,Closed
+FIR/JHS/2025/000320,Burglary,2025-05-24,Civil Lines PS,Jhansi,Complainant 320,Charge Sheet Filed
+FIR/MRT/2025/000321,Fraud,2025-02-30,Sadar PS,Meerut,Complainant 321,Charge Sheet Filed
+FIR/AGR/2025/000322,Rioting,2025-02-15,Sadar PS,Agra,Complainant 322,Pending Trial
+FIR/GZB/2025/000323,Theft,2025-10-24,Civil Lines PS,Ghaziabad,Complainant 323,Pending Trial
+FIR/MRT/2025/000324,Cheating,2025-02-16,Kotwali PS,Meerut,Complainant 324,Pending Trial
+FIR/JHS/2025/000325,Cheating,2025-08-17,Sadar PS,Jhansi,Complainant 325,Closed
+FIR/VNS/2025/000326,Assault,2025-06-03,Sadar PS,Varanasi,Complainant 326,Pending Trial
+FIR/LKO/2025/000327,Cheating,2025-03-05,GRP PS,Lucknow,Complainant 327,Pending Trial
+FIR/GZB/2025/000328,Dowry Harassment,2025-03-12,GRP PS,Ghaziabad,Complainant 328,Under Investigation
+FIR/MRT/2025/000329,Murder,2025-03-02,GRP PS,Meerut,Complainant 329,Closed
+FIR/BRL/2025/000330,Murder,2025-05-17,GRP PS,Bareilly,Complainant 330,Closed
+FIR/MRD/2025/000331,Assault,2025-06-03,Cantt PS,Moradabad,Complainant 331,Closed
+FIR/ALG/2025/000332,Rioting,2025-12-17,GRP PS,Aligarh,Complainant 332,Closed
+FIR/GBN/2025/000333,Burglary,2025-01-21,Cantt PS,Gautam Buddh Nagar,Complainant 333,Closed
+FIR/PRG/2025/000334,Fraud,2025-11-06,Cantt PS,Prayagraj,Complainant 334,Under Investigation
+FIR/MTH/2025/000335,Murder,2025-01-22,Sadar PS,Mathura,Complainant 335,Pending Trial
+FIR/BRL/2025/000336,Burglary,2025-04-02,Cantt PS,Bareilly,Complainant 336,Under Investigation
+FIR/LKO/2025/000337,Murder,2025-11-12,Cantt PS,Lucknow,Complainant 337,Under Investigation
+FIR/KNP/2025/000338,Robbery,2025-08-05,Civil Lines PS,Kanpur Nagar,Complainant 338,Under Investigation
+FIR/AGR/2025/000339,Cheating,2025-02-01,GRP PS,Agra,Complainant 339,Charge Sheet Filed
+FIR/JHS/2025/000340,Theft,2025-02-16,Kotwali PS,Jhansi,Complainant 340,Pending Trial
+FIR/AGR/2025/000341,Rioting,2025-11-07,Civil Lines PS,Agra,Complainant 341,Charge Sheet Filed
+FIR/VNS/2025/000342,Theft,2025-12-09,Sadar PS,Varanasi,Complainant 342,Closed
+FIR/GBN/2025/000343,Assault,2025-12-17,Civil Lines PS,Gautam Buddh Nagar,Complainant 343,Pending Trial
+FIR/LKO/2025/000344,Cheating,2025-09-19,GRP PS,Lucknow,Complainant 344,Closed
+FIR/VNS/2025/000345,Kidnapping,2025-10-02,Hazratganj PS,Varanasi,Complainant 345,Charge Sheet Filed
+FIR/VNS/2025/000346,Fraud,2025-05-20,Hazratganj PS,Varanasi,Complainant 346,Charge Sheet Filed
+FIR/VNS/2025/000347,Rioting,2025-04-14,Kotwali Dehat PS,Varanasi,Complainant 347,Pending Trial
+FIR/JHS/2025/000348,Murder,2025-06-06,Sadar PS,Jhansi,Complainant 348,Under Investigation
+FIR/VNS/2025/000349,Assault,2025-10-19,Sadar PS,Varanasi,Complainant 349,Pending Trial
+FIR/SHN/2025/000350,Dowry Harassment,2025-01-27,Cantt PS,Saharanpur,Complainant 350,Pending Trial
+FIR/PRG/2025/000351,Kidnapping,2025-07-07,GRP PS,Prayagraj,Complainant 351,Charge Sheet Filed
+FIR/MTH/2025/000352,Cheating,2025-11-30,Civil Lines PS,Mathura,Complainant 352,Charge Sheet Filed
+FIR/VNS/2025/000353,Cheating,2025-10-09,Kotwali Dehat PS,Varanasi,Complainant 353,Charge Sheet Filed
+FIR/MRD/2025/000354,Cheating,2025-05-29,Kotwali Dehat PS,Moradabad,Complainant 354,Closed
+FIR/SHN/2025/000355,Burglary,2025-08-21,Sadar PS,Saharanpur,Complainant 355,Pending Trial
+FIR/KNP/2025/000356,Murder,2025-04-20,Kotwali PS,Kanpur Nagar,Complainant 356,Closed
+FIR/GKP/2025/000357,Assault,2025-01-31,Kotwali PS,Gorakhpur,Complainant 357,Under Investigation
+FIR/KNP/2025/000358,Dowry Harassment,2025-09-16,Kotwali PS,Kanpur Nagar,Complainant 358,Closed
+FIR/LKO/2025/000359,Murder,2025-09-26,GRP PS,Lucknow,Complainant 359,Pending Trial
+FIR/SHN/2025/000360,Kidnapping,2025-02-23,Kotwali PS,Saharanpur,Complainant 360,Under Investigation
+FIR/GBN/2025/000361,Fraud,2025-05-09,Sadar PS,Gautam Buddh Nagar,Complainant 361,Under Investigation
+FIR/KNP/2025/000362,Kidnapping,2025-09-12,Civil Lines PS,Kanpur Nagar,Complainant 362,Pending Trial
+FIR/SHN/2025/000363,Murder,2025-08-10,Hazratganj PS,Saharanpur,Complainant 363,Charge Sheet Filed
+FIR/VNS/2025/000364,Kidnapping,2025-11-04,GRP PS,Varanasi,Complainant 364,Charge Sheet Filed
+FIR/LKO/2025/000365,Theft,2025-05-13,Hazratganj PS,Lucknow,Complainant 365,Under Investigation
+FIR/PRG/2025/000366,Theft,2025-10-30,GRP PS,Prayagraj,Complainant 366,Closed
+FIR/KNP/2025/000367,Burglary,2025-01-27,Kotwali Dehat PS,Kanpur Nagar,Complainant 367,Closed
+FIR/MRT/2025/000368,Cheating,2025-08-18,Kotwali Dehat PS,Meerut,Complainant 368,Charge Sheet Filed
+FIR/SHN/2025/000369,Dowry Harassment,2025-04-21,GRP PS,Saharanpur,Complainant 369,Closed
+FIR/MTH/2025/000370,Theft,2025-02-18,GRP PS,Mathura,Complainant 370,Under Investigation
+FIR/MRD/2025/000371,Dowry Harassment,2025-02-20,Kotwali PS,Moradabad,Complainant 371,Charge Sheet Filed
+FIR/SHN/2025/000372,Fraud,2025-11-29,Civil Lines PS,Saharanpur,Complainant 372,Charge Sheet Filed
+FIR/AGR/2025/000373,Kidnapping,2025-10-24,Sadar PS,Agra,Complainant 373,Under Investigation
+FIR/GKP/2025/000374,Murder,2025-11-28,Civil Lines PS,Gorakhpur,Complainant 374,Under Investigation
+FIR/GZB/2025/000375,Robbery,2025-08-15,Civil Lines PS,Ghaziabad,Complainant 375,Pending Trial
+FIR/ALG/2025/000376,Burglary,2025-09-01,GRP PS,Aligarh,Complainant 376,Closed
+FIR/AGR/2025/000377,Theft,2025-01-27,Sadar PS,Agra,Complainant 377,Charge Sheet Filed
+FIR/PRG/2025/000378,Fraud,2025-04-18,Hazratganj PS,Prayagraj,Complainant 378,Closed
+FIR/VNS/2025/000379,Burglary,2025-02-09,Hazratganj PS,Varanasi,Complainant 379,Charge Sheet Filed
+FIR/GKP/2025/000380,Assault,2025-03-09,Kotwali PS,Gorakhpur,Complainant 380,Pending Trial
+FIR/KNP/2025/000381,Robbery,2025-10-15,Hazratganj PS,Kanpur Nagar,Complainant 381,Charge Sheet Filed
+FIR/ALG/2025/000382,Rioting,2025-06-18,GRP PS,Aligarh,Complainant 382,Under Investigation
+FIR/AGR/2025/000383,Cheating,2025-10-23,Hazratganj PS,Agra,Complainant 383,Closed
+FIR/JHS/2025/000384,Rioting,2025-05-09,Hazratganj PS,Jhansi,Complainant 384,Closed
+FIR/BRL/2025/000385,Assault,2025-01-27,Kotwali Dehat PS,Bareilly,Complainant 385,Under Investigation
+FIR/ALG/2025/000386,Assault,2025-12-15,Cantt PS,Aligarh,Complainant 386,Closed
+FIR/GBN/2025/000387,Rioting,2025-10-03,Civil Lines PS,Gautam Buddh Nagar,Complainant 387,Closed
+FIR/GKP/2025/000388,Murder,2025-12-05,Hazratganj PS,Gorakhpur,Complainant 388,Pending Trial
+FIR/GZB/2025/000389,Robbery,2025-09-12,Cantt PS,Ghaziabad,Complainant 389,Under Investigation
+FIR/LKO/2025/000390,Fraud,2025-09-20,Civil Lines PS,Lucknow,Complainant 390,Closed
+FIR/GZB/2025/000391,,2025-07-16,Hazratganj PS,Ghaziabad,Complainant 391,Pending Trial
+FIR/ALG/2025/000392,Cheating,2025-02-09,Cantt PS,Aligarh,Complainant 392,Pending Trial
+FIR/LKO/2025/000393,Murder,2025-05-02,GRP PS,Lucknow,Complainant 393,Closed
+FIR/GZB/2025/000394,Dowry Harassment,2025-03-04,Hazratganj PS,Ghaziabad,Complainant 394,Charge Sheet Filed
+FIR/LKO/2025/000395,Burglary,2025-09-22,Cantt PS,Lucknow,Complainant 395,Closed
+FIR/VNS/2025/000396,Cheating,2025-10-27,GRP PS,Varanasi,Complainant 396,Pending Trial
+FIR/VNS/2025/000397,Kidnapping,2025-04-16,Hazratganj PS,Varanasi,Complainant 397,Under Investigation
+FIR/PRG/2025/000398,Kidnapping,2025-10-31,Civil Lines PS,Prayagraj,Complainant 398,Pending Trial
+FIR/ALG/2025/000399,Assault,2025-02-09,Kotwali PS,Aligarh,Complainant 399,Closed
+FIR/MRD/2025/000400,Dowry Harassment,2025-03-11,Kotwali PS,Moradabad,Complainant 400,Under Investigation
+FIR/SHN/2025/000401,Assault,2025-11-12,Kotwali Dehat PS,Saharanpur,Complainant 401,Under Investigation
+FIR/JHS/2025/000402,Assault,03-04-2025,Cantt PS,Jhansi,Complainant 402,Pending Trial
+FIR/GZB/2025/000403,Burglary,2025-12-18,GRP PS,Ghaziabad,Complainant 403,Closed
+FIR/MRT/2025/000404,Kidnapping,2025-10-29,GRP PS,Meerut,Complainant 404,Pending Trial
+FIR/AGR/2025/000405,Rioting,2025-03-12,Kotwali PS,Agra,Complainant 405,Under Investigation
+FIR/MTH/2025/000406,Fraud,2025-04-06,Kotwali PS,Mathura,Complainant 406,Charge Sheet Filed
+FIR/SHN/2025/000407,Assault,2025-08-20,Sadar PS,Saharanpur,Complainant 407,Pending Trial
+FIR/SHN/2025/000408,Theft,2025-10-26,Cantt PS,Saharanpur,Complainant 408,Charge Sheet Filed
+FIR/GBN/2025/000409,Kidnapping,2025-10-01,Hazratganj PS,Gautam Buddh Nagar,Complainant 409,Closed
+FIR/GZB/2025/000410,Dowry Harassment,2025-07-15,Cantt PS,Ghaziabad,Complainant 410,Pending Trial
+FIR/PRG/2025/000411,Kidnapping,2025-05-09,Kotwali Dehat PS,Prayagraj,Complainant 411,Under Investigation
+FIR/KNP/2025/000412,Rioting,2025-07-08,Sadar PS,Kanpur Nagar,Complainant 412,Pending Trial
+FIR/KNP/2025/000413,Dowry Harassment,2025-06-02,Hazratganj PS,Kanpur Nagar,Complainant 413,Under Investigation
+FIR/AGR/2025/000414,Dowry Harassment,2025-09-26,Cantt PS,Agra,Complainant 414,Pending Trial
+FIR/LKO/2025/000415,Assault,2025-02-06,GRP PS,Lucknow,Complainant 415,Closed
+FIR/LKO/2025/000416,Kidnapping,2025-06-08,Hazratganj PS,Lucknow,Complainant 416,Under Investigation
+FIR/GKP/2025/000417,Assault,2025-05-31,Civil Lines PS,Gorakhpur,Complainant 417,Under Investigation
+FIR/MRD/2025/000418,Rioting,2025-02-25,Kotwali Dehat PS,Moradabad,Complainant 418,Under Investigation
+FIR/KNP/2025/000419,Rioting,2025-08-29,Civil Lines PS,Kanpur Nagar,Complainant 419,Charge Sheet Filed
+FIR/GKP/2025/000420,Fraud,2025-03-03,Cantt PS,Gorakhpur,Complainant 420,Under Investigation
+FIR/SHN/2025/000421,Rioting,2025-03-04,Kotwali PS,Saharanpur,Complainant 421,Pending Trial
+FIR/ALG/2025/000422,Robbery,2025-07-21,Kotwali Dehat PS,Aligarh,Complainant 422,Under Investigation
+FIR/VNS/2025/000423,Assault,2025-08-25,Kotwali Dehat PS,Varanasi,Complainant 423,Under Investigation
+FIR/MRT/2025/000424,Burglary,2025-11-30,GRP PS,Meerut,Complainant 424,Under Investigation
+FIR/MTH/2025/000425,Burglary,2025-10-10,Hazratganj PS,Mathura,Complainant 425,Under Investigation
+FIR/LKO/2025/000426,Dowry Harassment,2025-02-04,Kotwali PS,Lucknow,Complainant 426,Pending Trial
+FIR/GKP/2025/000427,Kidnapping,2025-12-04,Sadar PS,Gorakhpur,Complainant 427,Closed
+FIR/JHS/2025/000428,Assault,2025-07-21,Civil Lines PS,Jhansi,Complainant 428,Closed
+FIR/KNP/2025/000429,Cheating,2025-04-12,Hazratganj PS,Kanpur Nagar,Complainant 429,Pending Trial
+FIR/AGR/2025/000430,Theft,2025-12-19,Civil Lines PS,Agra,Complainant 430,Under Investigation
+FIR/LKO/2025/000431,Assault,2025-10-01,GRP PS,Lucknow,Complainant 431,Closed
+FIR/MRD/2025/000432,Cheating,2025-08-07,Civil Lines PS,Moradabad,Complainant 432,Under Investigation
+FIR/MRD/2025/000433,Dowry Harassment,2025-10-31,Kotwali PS,Moradabad,Complainant 433,Under Investigation
+FIR/SHN/2025/000434,Cheating,2025-07-17,Kotwali Dehat PS,Saharanpur,Complainant 434,Pending Trial
+FIR/KNP/2025/000435,Murder,2025-02-28,Kotwali PS,Kanpur Nagar,Complainant 435,Under Investigation
+FIR/GKP/2025/000436,Theft,2025-02-06,Civil Lines PS,Gorakhpur,Complainant 436,Closed
+FIR/AGR/2025/000437,Kidnapping,2025-04-22,Cantt PS,Agra,Complainant 437,Closed
+FIR/PRG/2025/000438,Dowry Harassment,2025-09-12,Kotwali Dehat PS,Prayagraj,Complainant 438,Closed
+FIR/GZB/2025/000439,Murder,2025-09-04,GRP PS,Ghaziabad,Complainant 439,Charge Sheet Filed
+FIR/SHN/2025/000440,Fraud,2025-12-17,Kotwali Dehat PS,Saharanpur,Complainant 440,Pending Trial
+FIR/GZB/2025/000441,Murder,2025-04-16,Kotwali PS,Ghaziabad,Complainant 441,Pending Trial
+FIR/SHN/2025/000442,Dowry Harassment,2025-04-19,Kotwali Dehat PS,Saharanpur,Complainant 442,Closed
+FIR/ALG/2025/000443,Assault,2025-01-08,Civil Lines PS,Aligarh,Complainant 443,Closed
+FIR/MRT/2025/000444,Fraud,2025-12-07,Kotwali Dehat PS,Meerut,Complainant 444,Pending Trial
+FIR/JHS/2025/000445,Burglary,2025-03-26,Kotwali PS,Jhansi,Complainant 445,Closed
+FIR/AGR/2025/000446,Dowry Harassment,2025-12-14,Sadar PS,Agra,Complainant 446,Pending Trial
+FIR/AGR/2025/000447,Kidnapping,2025-06-25,Civil Lines PS,Agra,Complainant 447,Under Investigation
+FIR/MRD/2025/000448,Murder,2025-06-10,Hazratganj PS,Moradabad,Complainant 448,Pending Trial
+FIR/KNP/2025/000449,Assault,2025-03-15,GRP PS,Kanpur Nagar,Complainant 449,Under Investigation
+FIR/GKP/2025/000450,Burglary,2025-04-14,Sadar PS,Gorakhpur,Complainant 450,Closed
+FIR/GBN/2025/000451,Rioting,2025-01-11,Civil Lines PS,Gautam Buddh Nagar,Complainant 451,Charge Sheet Filed
+FIR/GKP/2025/000452,Rioting,2025-04-08,Cantt PS,Gorakhpur,Complainant 452,Pending Trial
+FIR/MRD/2025/000453,Fraud,2025-11-15,Kotwali Dehat PS,Moradabad,Complainant 453,Closed
+FIR/JHS/2025/000454,Robbery,2025-02-03,Cantt PS,Jhansi,Complainant 454,Closed
+FIR/GZB/2025/000455,Rioting,2025-12-01,Sadar PS,Ghaziabad,Complainant 455,Under Investigation
+FIR/MRT/2025/000456,Theft,2025-05-17,Cantt PS,Meerut,Complainant 456,Pending Trial
+FIR/MRD/2025/000457,Assault,2025-04-29,Kotwali Dehat PS,Moradabad,Complainant 457,Pending Trial
+FIR/GKP/2025/000458,Murder,2025-09-16,Hazratganj PS,Gorakhpur,Complainant 458,Pending Trial
+FIR/GKP/2025/000459,Cheating,2025-06-24,Cantt PS,Gorakhpur,Complainant 459,Pending Trial
+FIR/MRD/2025/000460,Assault,2025-06-08,Kotwali Dehat PS,Moradabad,Complainant 460,Closed
+FIR/MRD/2025/000461,Cheating,2025-05-11,Kotwali PS,Moradabad,Complainant 461,Charge Sheet Filed
+FIR/VNS/2025/000462,Fraud,2025-06-04,Hazratganj PS,Varanasi,Complainant 462,Pending Trial
+FIR/BRL/2025/000463,Murder,2025-06-01,Kotwali Dehat PS,Bareilly,Complainant 463,Charge Sheet Filed
+FIR/GBN/2025/000464,Dowry Harassment,2025-09-19,GRP PS,Gautam Buddh Nagar,Complainant 464,Closed
+FIR/AGR/2025/000465,Assault,2025-08-10,Cantt PS,Agra,Complainant 465,Charge Sheet Filed
+FIR/GBN/2025/000466,Theft,2025-12-10,Kotwali PS,Gautam Buddh Nagar,Complainant 466,Pending Trial
+FIR/GBN/2025/000467,Murder,2025-01-17,Sadar PS,Gautam Buddh Nagar,Complainant 467,Charge Sheet Filed
+FIR/JHS/2025/000468,Dowry Harassment,2025-04-06,Sadar PS,Jhansi,Complainant 468,Charge Sheet Filed
+FIR/BRL/2025/000469,Fraud,2025-06-10,Kotwali Dehat PS,Bareilly,Complainant 469,Under Investigation
+FIR/MRT/2025/000470,Theft,2025-10-06,Sadar PS,Meerut,Complainant 470,Under Investigation
+FIR/PRG/2025/000471,Robbery,2025-05-03,Civil Lines PS,Prayagraj,Complainant 471,Closed
+FIR/GKP/2025/000472,Robbery,2025-12-19,GRP PS,Gorakhpur,Complainant 472,Pending Trial
+FIR/BRL/2025/000473,Rioting,2025-12-26,Cantt PS,Bareilly,Complainant 473,Pending Trial
+FIR/AGR/2025/000474,Dowry Harassment,2025-07-11,GRP PS,Agra,Complainant 474,Closed
+FIR/LKO/2025/000475,Murder,2025-04-28,Kotwali Dehat PS,Lucknow,Complainant 475,Under Investigation
+FIR/PRG/2025/000476,Robbery,2025-12-23,GRP PS,Prayagraj,Complainant 476,Charge Sheet Filed
+FIR/KNP/2025/000477,Burglary,2025-10-22,GRP PS,Kanpur Nagar,Complainant 477,Closed
+FIR/GZB/2025/000478,Assault,2025-05-04,Sadar PS,Ghaziabad,Complainant 478,Closed
+FIR/ALG/2025/000479,Burglary,2025-05-07,Sadar PS,Aligarh,Complainant 479,Closed
+FIR/MTH/2025/000480,Burglary,2025-06-25,GRP PS,Mathura,Complainant 480,Under Investigation
+FIR/AGR/2025/000481,Cheating,2025-06-15,Cantt PS,Agra,Complainant 481,Charge Sheet Filed
+FIR/PRG/2025/000482,Assault,2025-05-25,GRP PS,Prayagraj,Complainant 482,Under Investigation
+FIR/GKP/2025/000483,Kidnapping,2025-06-19,Sadar PS,Gorakhpur,Complainant 483,Under Investigation
+FIR/MRT/2025/000484,Kidnapping,2025-10-29,Kotwali Dehat PS,Meerut,Complainant 484,Charge Sheet Filed
+FIR/PRG/2025/000485,Dowry Harassment,2025-10-20,Kotwali PS,Prayagraj,Complainant 485,Charge Sheet Filed
+FIR/PRG/2025/000486,Kidnapping,2025-06-17,Kotwali PS,Prayagraj,Complainant 486,Charge Sheet Filed
+FIR/MRT/2025/000487,Robbery,2025-10-10,Hazratganj PS,Meerut,Complainant 487,Under Investigation
+FIR/LKO/2025/000488,Burglary,2025-11-29,GRP PS,Lucknow,Complainant 488,Closed
+FIR/MTH/2025/000489,Assault,2025-04-13,Civil Lines PS,Mathura,Complainant 489,Pending Trial
+FIR/PRG/2025/000490,Theft,2025-10-05,Cantt PS,Prayagraj,Complainant 490,Charge Sheet Filed
+FIR/MRD/2025/000491,Murder,2025-12-16,Sadar PS,Moradabad,Complainant 491,Charge Sheet Filed
+FIR/MTH/2025/000492,Fraud,2025-03-02,Civil Lines PS,Mathura,Complainant 492,Pending Trial
+FIR/GBN/2025/000493,Dowry Harassment,2025-06-07,Kotwali Dehat PS,Gautam Buddh Nagar,Complainant 493,Pending Trial
+FIR/KNP/2025/000494,Dowry Harassment,2025-08-03,Sadar PS,Kanpur Nagar,Complainant 494,Pending Trial
+FIR/ALG/2025/000495,Kidnapping,2025-11-12,Cantt PS,Aligarh,Complainant 495,Closed
+FIR/AGR/2025/000496,Theft,2025-10-29,Kotwali PS,Agra,Complainant 496,Charge Sheet Filed
+FIR/GZB/2025/000497,Assault,2025-10-24,Hazratganj PS,Ghaziabad,Complainant 497,Charge Sheet Filed
+FIR/BRL/2025/000498,Burglary,2025-07-10,Hazratganj PS,Bareilly,Complainant 498,Under Investigation
+FIR/KNP/2025/000499,Robbery,2025-02-21,Kotwali Dehat PS,Kanpur Nagar,Complainant 499,Closed
+FIR/PRG/2025/000500,Cheating,2025-11-06,Cantt PS,Prayagraj,Complainant 500,Charge Sheet Filed

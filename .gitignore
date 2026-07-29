@@ -15,3 +15,8 @@ venv/
 *.db-wal
 data/*
 !data/.gitkeep
+storage/
+summery.md
+frontend/out/
+test-results/
+playwright-report/

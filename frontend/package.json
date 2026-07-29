@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "node -e \"console.log('This is a static export (output: export) — there is no separate frontend server.'); console.log('Run: npm run build (in frontend/), then start the backend (node src/index.js from the repo root),'); console.log('which serves the export at http://localhost:8001/app/');\"",
     "lint": "next lint"
   },
   "engines": {
@@ -14,7 +14,9 @@
   "dependencies": {
     "next": "15.3.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.8",
