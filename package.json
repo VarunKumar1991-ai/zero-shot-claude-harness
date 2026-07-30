@@ -8,8 +8,8 @@
     "node": ">=20.0.0"
   },
   "scripts": {
-    "dev": "nodemon src/index.js",
-    "start": "node src/index.js",
+    "dev": "nodemon --max-old-space-size=4096 src/index.js",
+    "start": "node --max-old-space-size=4096 src/index.js",
     "migrate": "sequelize-cli db:migrate && sequelize-cli db:seed:all",
     "test:unit": "vitest run tests/unit",
     "test:integration": "vitest run tests/integration",
