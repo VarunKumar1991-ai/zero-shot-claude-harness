@@ -19,11 +19,11 @@ Today, answering "how many thefts were reported in June" from a CSV export means
 
 ## Success Criteria
 
-- [ ] An officer can log in, upload a real FIR/crime CSV (up to ~500MB), and see an accurate auto-generated profile (columns, row count, date range, data-quality flags) within a few seconds.
-- [ ] An officer can ask a natural-language question about the uploaded data and receive a plain-language answer with the correct key number(s), computed by real code execution over the full uploaded dataset (not a sample), typically in under 30 seconds.
-- [ ] The officer can expand the answer to see the exact code that ran against their data.
-- [ ] Every query (who, what code, what result, when) is recorded in a server-side audit log.
-- [ ] Malformed/messy rows (bad dates, missing values) are detected and summarized as warnings, never silently dropped or corrupted into results.
+- [x] An officer can log in, upload a real FIR/crime CSV (up to ~500MB), and see an accurate auto-generated profile (columns, row count, date range, data-quality flags) within a few seconds.
+- [x] An officer can ask a natural-language question about the uploaded data and receive a plain-language answer with the correct key number(s), computed by real code execution over the full uploaded dataset (not a sample), typically in under 30 seconds.
+- [x] The officer can expand the answer to see the exact code that ran against their data.
+- [x] Every query (who, what code, what result, when) is recorded in a server-side audit log.
+- [x] Malformed/messy rows (bad dates, missing values) are detected and summarized as warnings, never silently dropped or corrupted into results.
 - [ ] By the end of Phase 2, an analyst can join/combine multiple CSVs, see charts, export findings, annotate columns, save derived datasets, and get follow-up-question suggestions.
 
 ## What This Agent Does NOT Do (Out of Scope)
